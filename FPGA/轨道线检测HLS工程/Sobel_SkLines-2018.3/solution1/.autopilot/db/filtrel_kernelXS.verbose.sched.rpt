@@ -1,0 +1,353 @@
+
+
+================================================================
+== Vivado HLS Report for 'filtrel_kernelXS'
+================================================================
+* Date:           Sat Jun  4 16:23:32 2022
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        Sobel_SkLines
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     3.075|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+-------+-------+----------+-----------+-----------+--------+----------+
+        |                     |    Latency    | Iteration|  Initiation Interval  |  Trip  |          |
+        |      Loop Name      |  min  |  max  |  Latency |  achieved |   target  |  Count | Pipelined|
+        +---------------------+-------+-------+----------+-----------+-----------+--------+----------+
+        |- Loop 1             |      ?|      ?|         ?|          -|          -|       6|    no    |
+        | + Loop 1.1          |   8160|   8160|       272|          -|          -|      30|    no    |
+        |  ++ Loop 1.1.1      |    270|    270|         1|          -|          -|     270|    no    |
+        | + Loop 1.2          |      ?|      ?|         ?|          -|          -|       9|    no    |
+        |  ++ Loop 1.2.1      |      ?|      ?|  4 ~ 64  |          -|          -|       ?|    no    |
+        |   +++ Loop 1.2.1.1  |      2|     61|         2|          -|          -| 1 ~ 30 |    no    |
+        | + Loop 1.3          |  16260|  16260|       542|          -|          -|      30|    no    |
+        |  ++ Loop 1.3.1      |    540|    540|         2|          -|          -|     270|    no    |
+        +---------------------+-------+-------+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 11
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond8)
+3 --> 
+	4  / (!exitcond4)
+	5  / (exitcond4)
+4 --> 
+	4  / (!exitcond7)
+	3  / (exitcond7)
+5 --> 
+	6  / (!exitcond6)
+	9  / (exitcond6)
+6 --> 
+	7  / (or_cond7)
+	5  / (!or_cond7)
+7 --> 
+	8  / true
+8 --> 
+	7  / (tmp_8 & !tmp_14) | (tmp_8 & !tmp_13)
+	6  / (tmp_13 & tmp_14) | (!tmp_8)
+9 --> 
+	10  / (!exitcond)
+	2  / (exitcond)
+10 --> 
+	11  / (!exitcond3)
+	9  / (exitcond3)
+11 --> 
+	10  / true
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.65>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %dst_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 12 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %src_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 13 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%line_buf1 = alloca [8100 x i8], align 1"   --->   Operation 14 'alloca' 'line_buf1' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 9> <RAM>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%Line_Flag2 = alloca [9 x i1], align 1"   --->   Operation 15 'alloca' 'Line_Flag2' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 9> <RAM>
+ST_1 : Operation 16 [1/1] (0.65ns)   --->   "br label %.loopexit27" [Sobel_SkLines/src/filtrel_kernelXS.cpp:15]   --->   Operation 16 'br' <Predicate = true> <Delay = 0.65>
+
+State 2 <SV = 1> <Delay = 0.67>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%count = phi i3 [ 0, %0 ], [ %count_1, %.loopexit27.loopexit ]"   --->   Operation 17 'phi' 'count' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.58ns)   --->   "%exitcond8 = icmp eq i3 %count, -2" [Sobel_SkLines/src/filtrel_kernelXS.cpp:15]   --->   Operation 18 'icmp' 'exitcond8' <Predicate = true> <Delay = 0.58> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 6, i64 6, i64 6)"   --->   Operation 19 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.67ns)   --->   "%count_1 = add i3 %count, 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:15]   --->   Operation 20 'add' 'count_1' <Predicate = true> <Delay = 0.67> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "br i1 %exitcond8, label %13, label %.preheader14.preheader" [Sobel_SkLines/src/filtrel_kernelXS.cpp:15]   --->   Operation 21 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.65ns)   --->   "br label %.preheader14"   --->   Operation 22 'br' <Predicate = (!exitcond8)> <Delay = 0.65>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "ret void" [Sobel_SkLines/src/filtrel_kernelXS.cpp:79]   --->   Operation 23 'ret' <Predicate = (exitcond8)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 0.82>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%yi = phi i5 [ %yi_1, %.preheader14.loopexit ], [ 0, %.preheader14.preheader ]"   --->   Operation 24 'phi' 'yi' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%phi_mul = phi i13 [ %next_mul, %.preheader14.loopexit ], [ 0, %.preheader14.preheader ]"   --->   Operation 25 'phi' 'phi_mul' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.82ns)   --->   "%next_mul = add i13 %phi_mul, 270"   --->   Operation 26 'add' 'next_mul' <Predicate = true> <Delay = 0.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 27 [1/1] (0.75ns)   --->   "%exitcond4 = icmp eq i5 %yi, -2" [Sobel_SkLines/src/filtrel_kernelXS.cpp:16]   --->   Operation 27 'icmp' 'exitcond4' <Predicate = true> <Delay = 0.75> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 30, i64 30, i64 30)"   --->   Operation 28 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.78ns)   --->   "%yi_1 = add i5 %yi, 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:16]   --->   Operation 29 'add' 'yi_1' <Predicate = true> <Delay = 0.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "br i1 %exitcond4, label %.preheader1.preheader, label %.preheader13.preheader" [Sobel_SkLines/src/filtrel_kernelXS.cpp:16]   --->   Operation 30 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (0.65ns)   --->   "br label %.preheader13" [Sobel_SkLines/src/filtrel_kernelXS.cpp:17]   --->   Operation 31 'br' <Predicate = (!exitcond4)> <Delay = 0.65>
+ST_3 : Operation 32 [1/1] (0.65ns)   --->   "br label %.preheader1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:26]   --->   Operation 32 'br' <Predicate = (exitcond4)> <Delay = 0.65>
+
+State 4 <SV = 3> <Delay = 3.07>
+ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%xi = phi i9 [ %xi_1, %1 ], [ 0, %.preheader13.preheader ]"   --->   Operation 33 'phi' 'xi' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 34 [1/1] (0.88ns)   --->   "%exitcond7 = icmp eq i9 %xi, -242" [Sobel_SkLines/src/filtrel_kernelXS.cpp:17]   --->   Operation 34 'icmp' 'exitcond7' <Predicate = true> <Delay = 0.88> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 270, i64 270, i64 270)"   --->   Operation 35 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 36 [1/1] (0.77ns)   --->   "%xi_1 = add i9 %xi, 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:17]   --->   Operation 36 'add' 'xi_1' <Predicate = true> <Delay = 0.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "br i1 %exitcond7, label %.preheader14.loopexit, label %1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:17]   --->   Operation 37 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str3)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:672->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/filtrel_kernelXS.cpp:19]   --->   Operation 38 'specregionbegin' 'tmp' <Predicate = (!exitcond7)> <Delay = 0.00>
+ST_4 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecProtocol(i32 0, [1 x i8]* @p_str) nounwind" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:676->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/filtrel_kernelXS.cpp:19]   --->   Operation 39 'specprotocol' <Predicate = (!exitcond7)> <Delay = 0.00>
+ST_4 : Operation 40 [1/1] (1.83ns)   --->   "%tmp_1 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %src_data_stream_V)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/filtrel_kernelXS.cpp:19]   --->   Operation 40 'read' 'tmp_1' <Predicate = (!exitcond7)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 2> <FIFO>
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str3, i32 %tmp)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:681->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/filtrel_kernelXS.cpp:19]   --->   Operation 41 'specregionend' 'empty' <Predicate = (!exitcond7)> <Delay = 0.00>
+ST_4 : Operation 42 [1/1] (0.00ns)   --->   "%tmp_33_cast = zext i9 %xi to i13" [Sobel_SkLines/src/filtrel_kernelXS.cpp:20]   --->   Operation 42 'zext' 'tmp_33_cast' <Predicate = (!exitcond7)> <Delay = 0.00>
+ST_4 : Operation 43 [1/1] (0.82ns)   --->   "%p_sum1 = add i13 %phi_mul, %tmp_33_cast" [Sobel_SkLines/src/filtrel_kernelXS.cpp:20]   --->   Operation 43 'add' 'p_sum1' <Predicate = (!exitcond7)> <Delay = 0.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 44 [1/1] (0.00ns)   --->   "%p_sum1_cast = zext i13 %p_sum1 to i64" [Sobel_SkLines/src/filtrel_kernelXS.cpp:20]   --->   Operation 44 'zext' 'p_sum1_cast' <Predicate = (!exitcond7)> <Delay = 0.00>
+ST_4 : Operation 45 [1/1] (0.00ns)   --->   "%line_buf1_addr = getelementptr [8100 x i8]* %line_buf1, i64 0, i64 %p_sum1_cast" [Sobel_SkLines/src/filtrel_kernelXS.cpp:20]   --->   Operation 45 'getelementptr' 'line_buf1_addr' <Predicate = (!exitcond7)> <Delay = 0.00>
+ST_4 : Operation 46 [1/1] (1.23ns)   --->   "store i8 %tmp_1, i8* %line_buf1_addr, align 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:20]   --->   Operation 46 'store' <Predicate = (!exitcond7)> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 9> <RAM>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "br label %.preheader13" [Sobel_SkLines/src/filtrel_kernelXS.cpp:17]   --->   Operation 47 'br' <Predicate = (!exitcond7)> <Delay = 0.00>
+ST_4 : Operation 48 [1/1] (0.00ns)   --->   "br label %.preheader14"   --->   Operation 48 'br' <Predicate = (exitcond7)> <Delay = 0.00>
+
+State 5 <SV = 3> <Delay = 0.79>
+ST_5 : Operation 49 [1/1] (0.00ns)   --->   "%i = phi i4 [ %i_1, %.preheader1.loopexit ], [ 0, %.preheader1.preheader ]"   --->   Operation 49 'phi' 'i' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 50 [1/1] (0.72ns)   --->   "%exitcond6 = icmp eq i4 %i, -7" [Sobel_SkLines/src/filtrel_kernelXS.cpp:26]   --->   Operation 50 'icmp' 'exitcond6' <Predicate = true> <Delay = 0.72> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 51 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9)"   --->   Operation 51 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 52 [1/1] (0.79ns)   --->   "%i_1 = add i4 %i, 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:26]   --->   Operation 52 'add' 'i_1' <Predicate = true> <Delay = 0.79> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 53 [1/1] (0.00ns)   --->   "br i1 %exitcond6, label %.preheader8.preheader, label %2" [Sobel_SkLines/src/filtrel_kernelXS.cpp:26]   --->   Operation 53 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 54 [1/1] (0.00ns)   --->   "%tmp_2 = zext i4 %i to i64" [Sobel_SkLines/src/filtrel_kernelXS.cpp:29]   --->   Operation 54 'zext' 'tmp_2' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_5 : Operation 55 [1/1] (0.00ns)   --->   "%Line_Flag2_addr = getelementptr [9 x i1]* %Line_Flag2, i64 0, i64 %tmp_2" [Sobel_SkLines/src/filtrel_kernelXS.cpp:29]   --->   Operation 55 'getelementptr' 'Line_Flag2_addr' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_5 : Operation 56 [1/1] (0.67ns)   --->   "store i1 false, i1* %Line_Flag2_addr, align 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:29]   --->   Operation 56 'store' <Predicate = (!exitcond6)> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 9> <RAM>
+ST_5 : Operation 57 [1/1] (0.00ns)   --->   "%p_shl = call i9 @_ssdm_op_BitConcatenate.i9.i4.i5(i4 %i, i5 0)" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 57 'bitconcatenate' 'p_shl' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_5 : Operation 58 [1/1] (0.00ns)   --->   "%p_shl_cast = zext i9 %p_shl to i10" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 58 'zext' 'p_shl_cast' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_5 : Operation 59 [1/1] (0.00ns)   --->   "%p_shl9 = call i5 @_ssdm_op_BitConcatenate.i5.i4.i1(i4 %i, i1 false)" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 59 'bitconcatenate' 'p_shl9' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_5 : Operation 60 [1/1] (0.00ns)   --->   "%p_shl9_cast = zext i5 %p_shl9 to i10" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 60 'zext' 'p_shl9_cast' <Predicate = (!exitcond6)> <Delay = 0.00>
+ST_5 : Operation 61 [1/1] (0.77ns)   --->   "%tmp_3 = sub i10 %p_shl_cast, %p_shl9_cast" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 61 'sub' 'tmp_3' <Predicate = (!exitcond6)> <Delay = 0.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 62 [1/1] (0.65ns)   --->   "br label %.loopexit" [Sobel_SkLines/src/filtrel_kernelXS.cpp:30]   --->   Operation 62 'br' <Predicate = (!exitcond6)> <Delay = 0.65>
+ST_5 : Operation 63 [1/1] (0.65ns)   --->   "br label %.preheader8" [Sobel_SkLines/src/filtrel_kernelXS.cpp:63]   --->   Operation 63 'br' <Predicate = (exitcond6)> <Delay = 0.65>
+
+State 6 <SV = 4> <Delay = 2.53>
+ST_6 : Operation 64 [1/1] (0.00ns)   --->   "%temp = phi i32 [ 0, %2 ], [ %temp_1, %.loopexit.backedge ]" [Sobel_SkLines/src/filtrel_kernelXS.cpp:35]   --->   Operation 64 'phi' 'temp' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 65 [1/1] (0.00ns)   --->   "%flag = phi i1 [ false, %2 ], [ %flag_be, %.loopexit.backedge ]"   --->   Operation 65 'phi' 'flag' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 66 [1/1] (0.00ns)   --->   "%j = phi i32 [ 0, %2 ], [ %j_1, %.loopexit.backedge ]"   --->   Operation 66 'phi' 'j' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 67 [1/1] (0.99ns)   --->   "%tmp_5 = icmp slt i32 %j, 30" [Sobel_SkLines/src/filtrel_kernelXS.cpp:30]   --->   Operation 67 'icmp' 'tmp_5' <Predicate = true> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 68 [1/1] (0.00ns) (grouped into LUT with out node or_cond7)   --->   "%tmp_6 = xor i1 %flag, true" [Sobel_SkLines/src/filtrel_kernelXS.cpp:31]   --->   Operation 68 'xor' 'tmp_6' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 69 [1/1] (0.28ns) (out node of the LUT)   --->   "%or_cond7 = and i1 %tmp_5, %tmp_6" [Sobel_SkLines/src/filtrel_kernelXS.cpp:31]   --->   Operation 69 'and' 'or_cond7' <Predicate = true> <Delay = 0.28> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 70 [1/1] (1.01ns)   --->   "%j_1 = add nsw i32 %j, 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:30]   --->   Operation 70 'add' 'j_1' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 71 [1/1] (0.00ns)   --->   "br i1 %or_cond7, label %.preheader9.preheader, label %.preheader1.loopexit" [Sobel_SkLines/src/filtrel_kernelXS.cpp:30]   --->   Operation 71 'br' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 72 [1/1] (0.00ns)   --->   "%tmp_4 = trunc i32 %j to i14" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 72 'trunc' 'tmp_4' <Predicate = (or_cond7)> <Delay = 0.00>
+ST_6 : Operation 73 [1/1] (2.53ns) (root node of the DSP)   --->   "%tmp_7 = mul i14 270, %tmp_4" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 73 'mul' 'tmp_7' <Predicate = (or_cond7)> <Delay = 2.53> <Core = "DSP48">   --->   Core 65 'DSP48' <Latency = 0> <II = 1> <Delay = 2.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 2> <OutPorts = 1> <Sync> <CReg>
+ST_6 : Operation 74 [1/1] (0.99ns)   --->   "%tmp_s = icmp eq i32 %j, 29" [Sobel_SkLines/src/filtrel_kernelXS.cpp:54]   --->   Operation 74 'icmp' 'tmp_s' <Predicate = (or_cond7)> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 75 [1/1] (0.65ns)   --->   "br label %.preheader9" [Sobel_SkLines/src/filtrel_kernelXS.cpp:33]   --->   Operation 75 'br' <Predicate = (or_cond7)> <Delay = 0.65>
+ST_6 : Operation 76 [1/1] (0.00ns)   --->   "br label %.preheader1"   --->   Operation 76 'br' <Predicate = (!or_cond7)> <Delay = 0.00>
+
+State 7 <SV = 5> <Delay = 2.85>
+ST_7 : Operation 77 [1/1] (0.00ns)   --->   "%temp_1 = phi i32 [ %temp, %.preheader9.preheader ], [ %temp_1_be, %.preheader9.backedge ]" [Sobel_SkLines/src/filtrel_kernelXS.cpp:35]   --->   Operation 77 'phi' 'temp_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 78 [1/1] (0.00ns)   --->   "%k = phi i5 [ 0, %.preheader9.preheader ], [ %k_1, %.preheader9.backedge ]"   --->   Operation 78 'phi' 'k' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 79 [1/1] (0.00ns)   --->   "%k_cast8 = zext i5 %k to i10" [Sobel_SkLines/src/filtrel_kernelXS.cpp:33]   --->   Operation 79 'zext' 'k_cast8' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 80 [1/1] (0.75ns)   --->   "%tmp_8 = icmp ult i5 %k, -2" [Sobel_SkLines/src/filtrel_kernelXS.cpp:33]   --->   Operation 80 'icmp' 'tmp_8' <Predicate = true> <Delay = 0.75> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 81 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 1, i64 30, i64 15)"   --->   Operation 81 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 82 [1/1] (0.78ns)   --->   "%k_1 = add i5 %k, 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:33]   --->   Operation 82 'add' 'k_1' <Predicate = true> <Delay = 0.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 83 [1/1] (0.00ns)   --->   "br i1 %tmp_8, label %3, label %.loopexit.loopexit" [Sobel_SkLines/src/filtrel_kernelXS.cpp:33]   --->   Operation 83 'br' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 84 [1/1] (0.78ns)   --->   "%tmp_12 = add i10 %tmp_3, %k_cast8" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 84 'add' 'tmp_12' <Predicate = (tmp_8)> <Delay = 0.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 85 [1/1] (0.00ns)   --->   "%tmp_44_cast = sext i10 %tmp_12 to i14" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 85 'sext' 'tmp_44_cast' <Predicate = (tmp_8)> <Delay = 0.00>
+ST_7 : Operation 86 [1/1] (0.83ns)   --->   "%p_sum = add i14 %tmp_7, %tmp_44_cast" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 86 'add' 'p_sum' <Predicate = (tmp_8)> <Delay = 0.83> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 87 [1/1] (0.00ns)   --->   "%p_sum_cast = sext i14 %p_sum to i64" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 87 'sext' 'p_sum_cast' <Predicate = (tmp_8)> <Delay = 0.00>
+ST_7 : Operation 88 [1/1] (0.00ns)   --->   "%line_buf1_addr_1 = getelementptr [8100 x i8]* %line_buf1, i64 0, i64 %p_sum_cast" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 88 'getelementptr' 'line_buf1_addr_1' <Predicate = (tmp_8)> <Delay = 0.00>
+ST_7 : Operation 89 [2/2] (1.23ns)   --->   "%line_buf1_load = load i8* %line_buf1_addr_1, align 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 89 'load' 'line_buf1_load' <Predicate = (tmp_8)> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 9> <RAM>
+ST_7 : Operation 90 [1/1] (0.65ns)   --->   "br label %.loopexit.backedge"   --->   Operation 90 'br' <Predicate = (!tmp_8)> <Delay = 0.65>
+
+State 8 <SV = 6> <Delay = 2.08>
+ST_8 : Operation 91 [1/2] (1.23ns)   --->   "%line_buf1_load = load i8* %line_buf1_addr_1, align 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 91 'load' 'line_buf1_load' <Predicate = (tmp_8)> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 9> <RAM>
+ST_8 : Operation 92 [1/1] (0.84ns)   --->   "%tmp_13 = icmp eq i8 %line_buf1_load, 0" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 92 'icmp' 'tmp_13' <Predicate = (tmp_8)> <Delay = 0.84> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 93 [1/1] (0.00ns)   --->   "br i1 %tmp_13, label %5, label %4" [Sobel_SkLines/src/filtrel_kernelXS.cpp:34]   --->   Operation 93 'br' <Predicate = (tmp_8)> <Delay = 0.00>
+ST_8 : Operation 94 [1/1] (1.01ns)   --->   "%temp_2 = add nsw i32 %temp_1, 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:35]   --->   Operation 94 'add' 'temp_2' <Predicate = (tmp_8 & !tmp_13)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 95 [1/1] (0.65ns)   --->   "br label %.preheader9.backedge" [Sobel_SkLines/src/filtrel_kernelXS.cpp:35]   --->   Operation 95 'br' <Predicate = (tmp_8 & !tmp_13)> <Delay = 0.65>
+ST_8 : Operation 96 [1/1] (0.99ns)   --->   "%tmp_14 = icmp sgt i32 %temp_1, 30" [Sobel_SkLines/src/filtrel_kernelXS.cpp:48]   --->   Operation 96 'icmp' 'tmp_14' <Predicate = (tmp_8 & tmp_13)> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 97 [1/1] (0.00ns)   --->   "br i1 %tmp_14, label %6, label %7" [Sobel_SkLines/src/filtrel_kernelXS.cpp:48]   --->   Operation 97 'br' <Predicate = (tmp_8 & tmp_13)> <Delay = 0.00>
+ST_8 : Operation 98 [1/1] (0.75ns)   --->   "%tmp_15 = icmp eq i5 %k, -3" [Sobel_SkLines/src/filtrel_kernelXS.cpp:54]   --->   Operation 98 'icmp' 'tmp_15' <Predicate = (tmp_8 & tmp_13 & !tmp_14)> <Delay = 0.75> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 99 [1/1] (0.28ns)   --->   "%or_cond = and i1 %tmp_s, %tmp_15" [Sobel_SkLines/src/filtrel_kernelXS.cpp:54]   --->   Operation 99 'and' 'or_cond' <Predicate = (tmp_8 & tmp_13 & !tmp_14)> <Delay = 0.28> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 100 [1/1] (0.65ns)   --->   "br i1 %or_cond, label %8, label %.preheader9.backedge" [Sobel_SkLines/src/filtrel_kernelXS.cpp:54]   --->   Operation 100 'br' <Predicate = (tmp_8 & tmp_13 & !tmp_14)> <Delay = 0.65>
+ST_8 : Operation 101 [1/1] (0.67ns)   --->   "store i1 true, i1* %Line_Flag2_addr, align 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:55]   --->   Operation 101 'store' <Predicate = (tmp_8 & tmp_13 & !tmp_14 & or_cond)> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 9> <RAM>
+ST_8 : Operation 102 [1/1] (0.65ns)   --->   "br label %.preheader9.backedge"   --->   Operation 102 'br' <Predicate = (tmp_8 & tmp_13 & !tmp_14 & or_cond)> <Delay = 0.65>
+ST_8 : Operation 103 [1/1] (0.00ns)   --->   "%temp_1_be = phi i32 [ %temp_2, %4 ], [ %temp_1, %8 ], [ %temp_1, %7 ]"   --->   Operation 103 'phi' 'temp_1_be' <Predicate = (tmp_8 & !tmp_14) | (tmp_8 & !tmp_13)> <Delay = 0.00>
+ST_8 : Operation 104 [1/1] (0.00ns)   --->   "br label %.preheader9"   --->   Operation 104 'br' <Predicate = (tmp_8 & !tmp_14) | (tmp_8 & !tmp_13)> <Delay = 0.00>
+ST_8 : Operation 105 [1/1] (0.67ns)   --->   "store i1 false, i1* %Line_Flag2_addr, align 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:50]   --->   Operation 105 'store' <Predicate = (tmp_8 & tmp_13 & tmp_14)> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 9> <RAM>
+ST_8 : Operation 106 [1/1] (0.65ns)   --->   "br label %.loopexit.backedge" [Sobel_SkLines/src/filtrel_kernelXS.cpp:52]   --->   Operation 106 'br' <Predicate = (tmp_8 & tmp_13 & tmp_14)> <Delay = 0.65>
+ST_8 : Operation 107 [1/1] (0.00ns)   --->   "%flag_be = phi i1 [ true, %6 ], [ false, %.loopexit.loopexit ]"   --->   Operation 107 'phi' 'flag_be' <Predicate = (tmp_13 & tmp_14) | (!tmp_8)> <Delay = 0.00>
+ST_8 : Operation 108 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 108 'br' <Predicate = (tmp_13 & tmp_14) | (!tmp_8)> <Delay = 0.00>
+
+State 9 <SV = 4> <Delay = 0.78>
+ST_9 : Operation 109 [1/1] (0.00ns)   --->   "%yi1 = phi i5 [ %yi_2, %.preheader8.loopexit ], [ 0, %.preheader8.preheader ]"   --->   Operation 109 'phi' 'yi1' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 110 [1/1] (0.75ns)   --->   "%exitcond = icmp eq i5 %yi1, -2" [Sobel_SkLines/src/filtrel_kernelXS.cpp:63]   --->   Operation 110 'icmp' 'exitcond' <Predicate = true> <Delay = 0.75> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 111 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 30, i64 30, i64 30)"   --->   Operation 111 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 112 [1/1] (0.78ns)   --->   "%yi_2 = add i5 %yi1, 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:63]   --->   Operation 112 'add' 'yi_2' <Predicate = true> <Delay = 0.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 113 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %.loopexit27.loopexit, label %.preheader.preheader" [Sobel_SkLines/src/filtrel_kernelXS.cpp:63]   --->   Operation 113 'br' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 114 [1/1] (0.65ns)   --->   "br label %.preheader" [Sobel_SkLines/src/filtrel_kernelXS.cpp:64]   --->   Operation 114 'br' <Predicate = (!exitcond)> <Delay = 0.65>
+ST_9 : Operation 115 [1/1] (0.00ns)   --->   "br label %.loopexit27"   --->   Operation 115 'br' <Predicate = (exitcond)> <Delay = 0.00>
+
+State 10 <SV = 5> <Delay = 0.88>
+ST_10 : Operation 116 [1/1] (0.00ns)   --->   "%xi2 = phi i9 [ %xi_2, %12 ], [ 0, %.preheader.preheader ]"   --->   Operation 116 'phi' 'xi2' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 117 [1/1] (0.00ns)   --->   "%phi_mul1 = phi i18 [ %next_mul1, %12 ], [ 0, %.preheader.preheader ]"   --->   Operation 117 'phi' 'phi_mul1' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 118 [1/1] (0.88ns)   --->   "%exitcond3 = icmp eq i9 %xi2, -242" [Sobel_SkLines/src/filtrel_kernelXS.cpp:64]   --->   Operation 118 'icmp' 'exitcond3' <Predicate = true> <Delay = 0.88> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 119 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 270, i64 270, i64 270)"   --->   Operation 119 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 120 [1/1] (0.77ns)   --->   "%xi_2 = add i9 %xi2, 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:64]   --->   Operation 120 'add' 'xi_2' <Predicate = true> <Delay = 0.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 121 [1/1] (0.00ns)   --->   "br i1 %exitcond3, label %.preheader8.loopexit, label %9" [Sobel_SkLines/src/filtrel_kernelXS.cpp:64]   --->   Operation 121 'br' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 122 [1/1] (0.87ns)   --->   "%next_mul1 = add i18 %phi_mul1, 547"   --->   Operation 122 'add' 'next_mul1' <Predicate = (!exitcond3)> <Delay = 0.87> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 123 [1/1] (0.00ns)   --->   "%tmp_9 = call i4 @_ssdm_op_PartSelect.i4.i18.i32.i32(i18 %phi_mul1, i32 14, i32 17)" [Sobel_SkLines/src/filtrel_kernelXS.cpp:66]   --->   Operation 123 'partselect' 'tmp_9' <Predicate = (!exitcond3)> <Delay = 0.00>
+ST_10 : Operation 124 [1/1] (0.00ns)   --->   "%tmp_10 = zext i4 %tmp_9 to i64" [Sobel_SkLines/src/filtrel_kernelXS.cpp:66]   --->   Operation 124 'zext' 'tmp_10' <Predicate = (!exitcond3)> <Delay = 0.00>
+ST_10 : Operation 125 [1/1] (0.00ns)   --->   "%Line_Flag2_addr_1 = getelementptr [9 x i1]* %Line_Flag2, i64 0, i64 %tmp_10" [Sobel_SkLines/src/filtrel_kernelXS.cpp:66]   --->   Operation 125 'getelementptr' 'Line_Flag2_addr_1' <Predicate = (!exitcond3)> <Delay = 0.00>
+ST_10 : Operation 126 [2/2] (0.67ns)   --->   "%Line_Flag2_load = load i1* %Line_Flag2_addr_1, align 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:66]   --->   Operation 126 'load' 'Line_Flag2_load' <Predicate = (!exitcond3)> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 9> <RAM>
+ST_10 : Operation 127 [1/1] (0.00ns)   --->   "br label %.preheader8"   --->   Operation 127 'br' <Predicate = (exitcond3)> <Delay = 0.00>
+
+State 11 <SV = 6> <Delay = 1.83>
+ST_11 : Operation 128 [1/2] (0.67ns)   --->   "%Line_Flag2_load = load i1* %Line_Flag2_addr_1, align 1" [Sobel_SkLines/src/filtrel_kernelXS.cpp:66]   --->   Operation 128 'load' 'Line_Flag2_load' <Predicate = true> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 9> <RAM>
+ST_11 : Operation 129 [1/1] (0.00ns)   --->   "%tmp_11 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str1)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:696->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/filtrel_kernelXS.cpp:68]   --->   Operation 129 'specregionbegin' 'tmp_11' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 130 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecProtocol(i32 0, [1 x i8]* @p_str) nounwind" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:700->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/filtrel_kernelXS.cpp:68]   --->   Operation 130 'specprotocol' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 131 [1/1] (0.00ns)   --->   "br i1 %Line_Flag2_load, label %10, label %11" [Sobel_SkLines/src/filtrel_kernelXS.cpp:66]   --->   Operation 131 'br' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 132 [1/1] (1.83ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %dst_data_stream_V, i8 -1)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:703->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/filtrel_kernelXS.cpp:72]   --->   Operation 132 'write' <Predicate = (!Line_Flag2_load)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 2> <FIFO>
+ST_11 : Operation 133 [1/1] (0.00ns)   --->   "%empty_22 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str1, i32 %tmp_11)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:705->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/filtrel_kernelXS.cpp:72]   --->   Operation 133 'specregionend' 'empty_22' <Predicate = (!Line_Flag2_load)> <Delay = 0.00>
+ST_11 : Operation 134 [1/1] (0.00ns)   --->   "br label %12"   --->   Operation 134 'br' <Predicate = (!Line_Flag2_load)> <Delay = 0.00>
+ST_11 : Operation 135 [1/1] (1.83ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %dst_data_stream_V, i8 0)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:703->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/filtrel_kernelXS.cpp:68]   --->   Operation 135 'write' <Predicate = (Line_Flag2_load)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 2> <FIFO>
+ST_11 : Operation 136 [1/1] (0.00ns)   --->   "%empty_21 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str1, i32 %tmp_11)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:705->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/filtrel_kernelXS.cpp:68]   --->   Operation 136 'specregionend' 'empty_21' <Predicate = (Line_Flag2_load)> <Delay = 0.00>
+ST_11 : Operation 137 [1/1] (0.00ns)   --->   "br label %12" [Sobel_SkLines/src/filtrel_kernelXS.cpp:69]   --->   Operation 137 'br' <Predicate = (Line_Flag2_load)> <Delay = 0.00>
+ST_11 : Operation 138 [1/1] (0.00ns)   --->   "br label %.preheader" [Sobel_SkLines/src/filtrel_kernelXS.cpp:64]   --->   Operation 138 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('count') with incoming values : ('count', Sobel_SkLines/src/filtrel_kernelXS.cpp:15) [9]  (0.656 ns)
+
+ <State 2>: 0.673ns
+The critical path consists of the following:
+	'phi' operation ('count') with incoming values : ('count', Sobel_SkLines/src/filtrel_kernelXS.cpp:15) [9]  (0 ns)
+	'add' operation ('count', Sobel_SkLines/src/filtrel_kernelXS.cpp:15) [12]  (0.673 ns)
+
+ <State 3>: 0.82ns
+The critical path consists of the following:
+	'phi' operation ('phi_mul') with incoming values : ('next_mul') [18]  (0 ns)
+	'add' operation ('next_mul') [19]  (0.82 ns)
+
+ <State 4>: 3.08ns
+The critical path consists of the following:
+	fifo read on port 'src_data_stream_V' (D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/filtrel_kernelXS.cpp:19) [35]  (1.84 ns)
+	'store' operation (Sobel_SkLines/src/filtrel_kernelXS.cpp:20) of variable 'tmp', D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/filtrel_kernelXS.cpp:19 on array 'line_buf1' [41]  (1.24 ns)
+
+ <State 5>: 0.797ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', Sobel_SkLines/src/filtrel_kernelXS.cpp:26) [48]  (0 ns)
+	'add' operation ('i', Sobel_SkLines/src/filtrel_kernelXS.cpp:26) [51]  (0.797 ns)
+
+ <State 6>: 2.53ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', Sobel_SkLines/src/filtrel_kernelXS.cpp:30) [66]  (0 ns)
+	'mul' operation of DSP[74] ('tmp_7', Sobel_SkLines/src/filtrel_kernelXS.cpp:34) [74]  (2.53 ns)
+
+ <State 7>: 2.85ns
+The critical path consists of the following:
+	'phi' operation ('k') with incoming values : ('k', Sobel_SkLines/src/filtrel_kernelXS.cpp:33) [79]  (0 ns)
+	'add' operation ('tmp_12', Sobel_SkLines/src/filtrel_kernelXS.cpp:34) [86]  (0.787 ns)
+	'add' operation ('p_sum', Sobel_SkLines/src/filtrel_kernelXS.cpp:34) [88]  (0.831 ns)
+	'getelementptr' operation ('line_buf1_addr_1', Sobel_SkLines/src/filtrel_kernelXS.cpp:34) [90]  (0 ns)
+	'load' operation ('line_buf1_load', Sobel_SkLines/src/filtrel_kernelXS.cpp:34) on array 'line_buf1' [91]  (1.24 ns)
+
+ <State 8>: 2.09ns
+The critical path consists of the following:
+	'load' operation ('line_buf1_load', Sobel_SkLines/src/filtrel_kernelXS.cpp:34) on array 'line_buf1' [91]  (1.24 ns)
+	'icmp' operation ('tmp_13', Sobel_SkLines/src/filtrel_kernelXS.cpp:34) [92]  (0.849 ns)
+
+ <State 9>: 0.789ns
+The critical path consists of the following:
+	'phi' operation ('yi') with incoming values : ('yi', Sobel_SkLines/src/filtrel_kernelXS.cpp:63) [123]  (0 ns)
+	'add' operation ('yi', Sobel_SkLines/src/filtrel_kernelXS.cpp:63) [126]  (0.789 ns)
+
+ <State 10>: 0.881ns
+The critical path consists of the following:
+	'phi' operation ('xi') with incoming values : ('xi', Sobel_SkLines/src/filtrel_kernelXS.cpp:64) [131]  (0 ns)
+	'icmp' operation ('exitcond3', Sobel_SkLines/src/filtrel_kernelXS.cpp:64) [133]  (0.881 ns)
+
+ <State 11>: 1.84ns
+The critical path consists of the following:
+	fifo write on port 'dst_data_stream_V' (D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:703->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/filtrel_kernelXS.cpp:72) [147]  (1.84 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

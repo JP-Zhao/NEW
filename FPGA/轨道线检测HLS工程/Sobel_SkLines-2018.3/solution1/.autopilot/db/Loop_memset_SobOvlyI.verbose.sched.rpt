@@ -1,0 +1,131 @@
+
+
+================================================================
+== Vivado HLS Report for 'Loop_memset_SobOvlyI'
+================================================================
+* Date:           Sat Jun  4 16:23:21 2022
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        Sobel_SkLines
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     0.677|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    2|    2|    2|    2|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |         Loop Name        | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- memset_SobOvlyIma_Strt  |    1|    1|         1|          -|          -|     2|    no    |
+        +--------------------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	2  / (!invdar_i)
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.65>
+ST_1 : Operation 3 [1/1] (0.65ns)   --->   "br label %meminst.i"   --->   Operation 3 'br' <Predicate = true> <Delay = 0.65>
+
+State 2 <SV = 1> <Delay = 0.67>
+ST_2 : Operation 4 [1/1] (0.00ns)   --->   "%invdar_i = phi i1 [ false, %newFuncRoot ], [ %indvarinc_i, %meminst.i ]" [Sobel_SkLines/src/TOP_fuct.cpp:33]   --->   Operation 4 'phi' 'invdar_i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 5 [1/1] (0.00ns)   --->   "%tmp_i = zext i1 %invdar_i to i64" [Sobel_SkLines/src/TOP_fuct.cpp:33]   --->   Operation 5 'zext' 'tmp_i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 6 [1/1] (0.28ns)   --->   "%indvarinc_i = xor i1 %invdar_i, true" [Sobel_SkLines/src/TOP_fuct.cpp:33]   --->   Operation 6 'xor' 'indvarinc_i' <Predicate = true> <Delay = 0.28> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%SobOvlyIma_Strt_addr = getelementptr [2 x i1]* %SobOvlyIma_Strt, i64 0, i64 %tmp_i" [Sobel_SkLines/src/TOP_fuct.cpp:33]   --->   Operation 7 'getelementptr' 'SobOvlyIma_Strt_addr' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 8 [1/1] (0.67ns)   --->   "store i1 false, i1* %SobOvlyIma_Strt_addr, align 1" [Sobel_SkLines/src/TOP_fuct.cpp:33]   --->   Operation 8 'store' <Predicate = true> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 2> <RAM>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([23 x i8]* @memset_SobOvlyIma_St)"   --->   Operation 9 'specloopname' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 10 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "br i1 %invdar_i, label %TOP_fuct_meminst.exit.exitStub, label %meminst.i" [Sobel_SkLines/src/TOP_fuct.cpp:33]   --->   Operation 11 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 12 'ret' <Predicate = (invdar_i)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('invdar_i', Sobel_SkLines/src/TOP_fuct.cpp:33) with incoming values : ('indvarinc_i', Sobel_SkLines/src/TOP_fuct.cpp:33) [4]  (0.656 ns)
+
+ <State 2>: 0.677ns
+The critical path consists of the following:
+	'phi' operation ('invdar_i', Sobel_SkLines/src/TOP_fuct.cpp:33) with incoming values : ('indvarinc_i', Sobel_SkLines/src/TOP_fuct.cpp:33) [4]  (0 ns)
+	'getelementptr' operation ('SobOvlyIma_Strt_addr', Sobel_SkLines/src/TOP_fuct.cpp:33) [7]  (0 ns)
+	'store' operation (Sobel_SkLines/src/TOP_fuct.cpp:33) of constant 0 on array 'SobOvlyIma_Strt' [8]  (0.677 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

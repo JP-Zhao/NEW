@@ -1,0 +1,905 @@
+
+
+================================================================
+== Vivado HLS Report for 'SeekPoint'
+================================================================
+* Date:           Sat Jun  4 16:23:35 2022
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        Sobel_SkLines
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.419|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |    ?|    ?|         ?|          -|          -|   180|    no    |
+        | + Loop 1.1  |    ?|    ?|         ?|          -|          -|   290|    no    |
+        |- Loop 2     |    ?|    ?|         ?|          -|          -|  inf |    no    |
+        | + Loop 2.1  |    ?|    ?|         ?|          -|          -|     2|    no    |
+        | + Loop 2.2  |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 0
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 58
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond9)
+	5  / (exitcond9)
+3 --> 
+	4  / (!exitcond8)
+	2  / (exitcond8)
+4 --> 
+	3  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / (!exitcond)
+	16  / (exitcond)
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	8  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / (tmp_40)
+	5  / (!tmp_40)
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	53  / true
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+	56  / true
+56 --> 
+	57  / true
+57 --> 
+	58  / true
+58 --> 
+	34  / true
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.65>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%WtPoitRowLoc_lenth = alloca i32"   --->   Operation 59 'alloca' 'WtPoitRowLoc_lenth' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%WtPoitColLoc_lenth = alloca i32"   --->   Operation 60 'alloca' 'WtPoitColLoc_lenth' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%SrcPoitLeh = alloca i32"   --->   Operation 61 'alloca' 'SrcPoitLeh' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %src_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 62 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%WtPoitRowLoc = alloca [5000 x i32], align 16" [Sobel_SkLines/src/SeekPoint.cpp:11]   --->   Operation 63 'alloca' 'WtPoitRowLoc' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_1 : Operation 64 [1/1] (0.00ns)   --->   "%WtPoitColLoc = alloca [5000 x i32], align 16" [Sobel_SkLines/src/SeekPoint.cpp:11]   --->   Operation 64 'alloca' 'WtPoitColLoc' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%CalaPoint_0 = alloca [2 x i32], align 16" [Sobel_SkLines/src/SeekPoint.cpp:37]   --->   Operation 65 'alloca' 'CalaPoint_0' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_1 : Operation 66 [1/1] (0.00ns)   --->   "%CalaPoint_1 = alloca [2 x i32], align 16" [Sobel_SkLines/src/SeekPoint.cpp:37]   --->   Operation 66 'alloca' 'CalaPoint_1' <Predicate = true> <Delay = 0.00> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_1 : Operation 67 [1/1] (0.65ns)   --->   "store i32 1, i32* %SrcPoitLeh"   --->   Operation 67 'store' <Predicate = true> <Delay = 0.65>
+ST_1 : Operation 68 [1/1] (0.65ns)   --->   "store i32 0, i32* %WtPoitColLoc_lenth"   --->   Operation 68 'store' <Predicate = true> <Delay = 0.65>
+ST_1 : Operation 69 [1/1] (0.65ns)   --->   "store i32 0, i32* %WtPoitRowLoc_lenth"   --->   Operation 69 'store' <Predicate = true> <Delay = 0.65>
+ST_1 : Operation 70 [1/1] (0.65ns)   --->   "br label %.loopexit" [Sobel_SkLines/src/SeekPoint.cpp:14]   --->   Operation 70 'br' <Predicate = true> <Delay = 0.65>
+
+State 2 <SV = 1> <Delay = 0.84>
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "%i = phi i8 [ 0, %0 ], [ %i_3, %.loopexit.loopexit ]"   --->   Operation 71 'phi' 'i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 72 [1/1] (0.00ns)   --->   "%WtPoitRowLoc_lenth_l = load i32* %WtPoitRowLoc_lenth"   --->   Operation 72 'load' 'WtPoitRowLoc_lenth_l' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "%WtPoitColLoc_lenth_l = load i32* %WtPoitColLoc_lenth"   --->   Operation 73 'load' 'WtPoitColLoc_lenth_l' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 74 [1/1] (0.84ns)   --->   "%exitcond9 = icmp eq i8 %i, -76" [Sobel_SkLines/src/SeekPoint.cpp:14]   --->   Operation 74 'icmp' 'exitcond9' <Predicate = true> <Delay = 0.84> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.05> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 75 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 180, i64 180, i64 180)"   --->   Operation 75 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 76 [1/1] (0.76ns)   --->   "%i_3 = add i8 %i, 1" [Sobel_SkLines/src/SeekPoint.cpp:14]   --->   Operation 76 'add' 'i_3' <Predicate = true> <Delay = 0.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "br i1 %exitcond9, label %.preheader.preheader, label %.preheader5.preheader" [Sobel_SkLines/src/SeekPoint.cpp:14]   --->   Operation 77 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "%i_cast8_cast = zext i8 %i to i9" [Sobel_SkLines/src/SeekPoint.cpp:19]   --->   Operation 78 'zext' 'i_cast8_cast' <Predicate = (!exitcond9)> <Delay = 0.00>
+ST_2 : Operation 79 [1/1] (0.65ns)   --->   "br label %.preheader5" [Sobel_SkLines/src/SeekPoint.cpp:15]   --->   Operation 79 'br' <Predicate = (!exitcond9)> <Delay = 0.65>
+ST_2 : Operation 80 [1/1] (0.00ns)   --->   "%templong = alloca i32"   --->   Operation 80 'alloca' 'templong' <Predicate = (exitcond9)> <Delay = 0.00>
+ST_2 : Operation 81 [1/1] (0.00ns)   --->   "%WtPoitColLoc_lenth_1 = alloca i32"   --->   Operation 81 'alloca' 'WtPoitColLoc_lenth_1' <Predicate = (exitcond9)> <Delay = 0.00>
+ST_2 : Operation 82 [1/1] (0.00ns)   --->   "%CalaPoint_0_addr_1 = getelementptr [2 x i32]* %CalaPoint_0, i64 0, i64 1" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 82 'getelementptr' 'CalaPoint_0_addr_1' <Predicate = (exitcond9)> <Delay = 0.00>
+ST_2 : Operation 83 [1/1] (0.00ns)   --->   "%CalaPoint_0_addr_2 = getelementptr [2 x i32]* %CalaPoint_0, i64 0, i64 0" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 83 'getelementptr' 'CalaPoint_0_addr_2' <Predicate = (exitcond9)> <Delay = 0.00>
+ST_2 : Operation 84 [1/1] (0.00ns)   --->   "%CalaPoint_1_addr_1 = getelementptr [2 x i32]* %CalaPoint_1, i64 0, i64 1" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 84 'getelementptr' 'CalaPoint_1_addr_1' <Predicate = (exitcond9)> <Delay = 0.00>
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "%CalaPoint_1_addr_2 = getelementptr [2 x i32]* %CalaPoint_1, i64 0, i64 0" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 85 'getelementptr' 'CalaPoint_1_addr_2' <Predicate = (exitcond9)> <Delay = 0.00>
+ST_2 : Operation 86 [1/1] (0.67ns)   --->   "store i32 %WtPoitColLoc_lenth_l, i32* %WtPoitColLoc_lenth_1"   --->   Operation 86 'store' <Predicate = (exitcond9)> <Delay = 0.67>
+ST_2 : Operation 87 [1/1] (0.67ns)   --->   "store i32 %WtPoitRowLoc_lenth_l, i32* %templong"   --->   Operation 87 'store' <Predicate = (exitcond9)> <Delay = 0.67>
+ST_2 : Operation 88 [1/1] (0.65ns)   --->   "br label %.preheader"   --->   Operation 88 'br' <Predicate = (exitcond9)> <Delay = 0.65>
+
+State 3 <SV = 2> <Delay = 2.68>
+ST_3 : Operation 89 [1/1] (0.00ns)   --->   "%j = phi i9 [ 0, %.preheader5.preheader ], [ %j_3, %.preheader5.backedge ]"   --->   Operation 89 'phi' 'j' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 90 [1/1] (0.88ns)   --->   "%exitcond8 = icmp eq i9 %j, -222" [Sobel_SkLines/src/SeekPoint.cpp:15]   --->   Operation 90 'icmp' 'exitcond8' <Predicate = true> <Delay = 0.88> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.05> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 91 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 290, i64 290, i64 290)"   --->   Operation 91 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 92 [1/1] (0.77ns)   --->   "%j_3 = add i9 %j, 1" [Sobel_SkLines/src/SeekPoint.cpp:15]   --->   Operation 92 'add' 'j_3' <Predicate = true> <Delay = 0.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 93 [1/1] (0.00ns)   --->   "br i1 %exitcond8, label %.loopexit.loopexit, label %1" [Sobel_SkLines/src/SeekPoint.cpp:15]   --->   Operation 93 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 94 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str3)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:672->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/SeekPoint.cpp:16]   --->   Operation 94 'specregionbegin' 'tmp' <Predicate = (!exitcond8)> <Delay = 0.00>
+ST_3 : Operation 95 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecProtocol(i32 0, [1 x i8]* @p_str) nounwind" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:676->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/SeekPoint.cpp:16]   --->   Operation 95 'specprotocol' <Predicate = (!exitcond8)> <Delay = 0.00>
+ST_3 : Operation 96 [1/1] (1.83ns)   --->   "%tmp_14 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %src_data_stream_V)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/SeekPoint.cpp:16]   --->   Operation 96 'read' 'tmp_14' <Predicate = (!exitcond8)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 2> <FIFO>
+ST_3 : Operation 97 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str3, i32 %tmp)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:681->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/SeekPoint.cpp:16]   --->   Operation 97 'specregionend' 'empty' <Predicate = (!exitcond8)> <Delay = 0.00>
+ST_3 : Operation 98 [1/1] (0.84ns)   --->   "%tmp_24 = icmp eq i8 %tmp_14, 0" [Sobel_SkLines/src/SeekPoint.cpp:17]   --->   Operation 98 'icmp' 'tmp_24' <Predicate = (!exitcond8)> <Delay = 0.84> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.05> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 99 [1/1] (0.00ns)   --->   "br i1 %tmp_24, label %.preheader5.backedge, label %2" [Sobel_SkLines/src/SeekPoint.cpp:17]   --->   Operation 99 'br' <Predicate = (!exitcond8)> <Delay = 0.00>
+ST_3 : Operation 100 [1/1] (0.00ns)   --->   "%WtPoitRowLoc_lenth_l_1 = load i32* %WtPoitRowLoc_lenth" [Sobel_SkLines/src/SeekPoint.cpp:19]   --->   Operation 100 'load' 'WtPoitRowLoc_lenth_l_1' <Predicate = (!exitcond8 & !tmp_24)> <Delay = 0.00>
+ST_3 : Operation 101 [1/1] (0.00ns)   --->   "%WtPoitColLoc_lenth_l_1 = load i32* %WtPoitColLoc_lenth" [Sobel_SkLines/src/SeekPoint.cpp:20]   --->   Operation 101 'load' 'WtPoitColLoc_lenth_l_1' <Predicate = (!exitcond8 & !tmp_24)> <Delay = 0.00>
+ST_3 : Operation 102 [1/1] (0.00ns)   --->   "%SrcPoitLeh_load = load i32* %SrcPoitLeh" [Sobel_SkLines/src/SeekPoint.cpp:21]   --->   Operation 102 'load' 'SrcPoitLeh_load' <Predicate = (!exitcond8 & !tmp_24)> <Delay = 0.00>
+ST_3 : Operation 103 [1/1] (1.01ns)   --->   "%tmp_38 = add nsw i32 %WtPoitRowLoc_lenth_l_1, 1" [Sobel_SkLines/src/SeekPoint.cpp:19]   --->   Operation 103 'add' 'tmp_38' <Predicate = (!exitcond8 & !tmp_24)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 104 [2/2] (2.66ns)   --->   "call fastcc void @ListInsert([5000 x i32]* %WtPoitRowLoc, i32 %SrcPoitLeh_load, i9 %i_cast8_cast, i32 %WtPoitRowLoc_lenth_l_1)" [Sobel_SkLines/src/SeekPoint.cpp:19]   --->   Operation 104 'call' <Predicate = (!exitcond8 & !tmp_24)> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 105 [1/1] (1.01ns)   --->   "%tmp_39 = add nsw i32 %WtPoitColLoc_lenth_l_1, 1" [Sobel_SkLines/src/SeekPoint.cpp:20]   --->   Operation 105 'add' 'tmp_39' <Predicate = (!exitcond8 & !tmp_24)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 106 [2/2] (2.66ns)   --->   "call fastcc void @ListInsert([5000 x i32]* %WtPoitColLoc, i32 %SrcPoitLeh_load, i9 %j, i32 %WtPoitColLoc_lenth_l_1)" [Sobel_SkLines/src/SeekPoint.cpp:20]   --->   Operation 106 'call' <Predicate = (!exitcond8 & !tmp_24)> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 107 [1/1] (1.01ns)   --->   "%SrcPoitLeh_1 = add nsw i32 %SrcPoitLeh_load, 1" [Sobel_SkLines/src/SeekPoint.cpp:21]   --->   Operation 107 'add' 'SrcPoitLeh_1' <Predicate = (!exitcond8 & !tmp_24)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 108 [1/1] (0.65ns)   --->   "store i32 %SrcPoitLeh_1, i32* %SrcPoitLeh" [Sobel_SkLines/src/SeekPoint.cpp:21]   --->   Operation 108 'store' <Predicate = (!exitcond8 & !tmp_24)> <Delay = 0.65>
+ST_3 : Operation 109 [1/1] (0.65ns)   --->   "store i32 %tmp_39, i32* %WtPoitColLoc_lenth" [Sobel_SkLines/src/SeekPoint.cpp:20]   --->   Operation 109 'store' <Predicate = (!exitcond8 & !tmp_24)> <Delay = 0.65>
+ST_3 : Operation 110 [1/1] (0.65ns)   --->   "store i32 %tmp_38, i32* %WtPoitRowLoc_lenth" [Sobel_SkLines/src/SeekPoint.cpp:19]   --->   Operation 110 'store' <Predicate = (!exitcond8 & !tmp_24)> <Delay = 0.65>
+ST_3 : Operation 111 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 111 'br' <Predicate = (exitcond8)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 112 [1/2] (0.00ns)   --->   "call fastcc void @ListInsert([5000 x i32]* %WtPoitRowLoc, i32 %SrcPoitLeh_load, i9 %i_cast8_cast, i32 %WtPoitRowLoc_lenth_l_1)" [Sobel_SkLines/src/SeekPoint.cpp:19]   --->   Operation 112 'call' <Predicate = (!tmp_24)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 113 [1/2] (0.00ns)   --->   "call fastcc void @ListInsert([5000 x i32]* %WtPoitColLoc, i32 %SrcPoitLeh_load, i9 %j, i32 %WtPoitColLoc_lenth_l_1)" [Sobel_SkLines/src/SeekPoint.cpp:20]   --->   Operation 113 'call' <Predicate = (!tmp_24)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 114 [1/1] (0.00ns)   --->   "br label %.preheader5.backedge" [Sobel_SkLines/src/SeekPoint.cpp:22]   --->   Operation 114 'br' <Predicate = (!tmp_24)> <Delay = 0.00>
+ST_4 : Operation 115 [1/1] (0.00ns)   --->   "br label %.preheader5"   --->   Operation 115 'br' <Predicate = true> <Delay = 0.00>
+
+State 5 <SV = 2> <Delay = 7.89>
+ST_5 : Operation 116 [1/1] (0.00ns)   --->   "%templong_2 = load i32* %templong" [Sobel_SkLines/src/SeekPoint.cpp:19]   --->   Operation 116 'load' 'templong_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 117 [3/3] (7.89ns)   --->   "%tmp_s = sitofp i32 %templong_2 to float" [Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 117 'sitofp' 'tmp_s' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 6 <SV = 3> <Delay = 7.89>
+ST_6 : Operation 118 [2/3] (7.89ns)   --->   "%tmp_s = sitofp i32 %templong_2 to float" [Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 118 'sitofp' 'tmp_s' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 7 <SV = 4> <Delay = 7.89>
+ST_7 : Operation 119 [1/1] (0.00ns)   --->   "%p_02_rec = phi i6 [ 0, %.preheader.preheader ], [ %p_rec, %.preheader.loopexit ]" [Sobel_SkLines/src/SeekPoint.cpp:65]   --->   Operation 119 'phi' 'p_02_rec' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 120 [1/1] (0.00ns)   --->   "%WtPoitColLoc_lenth_1_1 = load i32* %WtPoitColLoc_lenth_1" [Sobel_SkLines/src/SeekPoint.cpp:20]   --->   Operation 120 'load' 'WtPoitColLoc_lenth_1_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 121 [1/1] (0.00ns)   --->   "%p_02_rec_cast = zext i6 %p_02_rec to i64" [Sobel_SkLines/src/SeekPoint.cpp:65]   --->   Operation 121 'zext' 'p_02_rec_cast' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 122 [1/1] (0.00ns)   --->   "%loop_begin = call i32 (...)* @_ssdm_op_SpecLoopBegin() nounwind"   --->   Operation 122 'specloopbegin' 'loop_begin' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 123 [1/1] (0.00ns)   --->   "%K_addr = getelementptr [50 x float]* %K, i64 0, i64 %p_02_rec_cast" [Sobel_SkLines/src/SeekPoint.cpp:65]   --->   Operation 123 'getelementptr' 'K_addr' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 124 [1/1] (0.00ns)   --->   "%B_addr = getelementptr [50 x float]* %B, i64 0, i64 %p_02_rec_cast" [Sobel_SkLines/src/SeekPoint.cpp:65]   --->   Operation 124 'getelementptr' 'B_addr' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 125 [1/1] (0.00ns)   --->   "%NumPoint_addr = getelementptr [50 x i32]* %NumPoint, i64 0, i64 %p_02_rec_cast" [Sobel_SkLines/src/SeekPoint.cpp:65]   --->   Operation 125 'getelementptr' 'NumPoint_addr' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 126 [1/1] (1.01ns)   --->   "%WtPoitRowLoc_lenth_1 = add i32 %templong_2, -2" [Sobel_SkLines/src/SeekPoint.cpp:19]   --->   Operation 126 'add' 'WtPoitRowLoc_lenth_1' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 127 [1/1] (1.01ns)   --->   "%WtPoitColLoc_lenth_2 = add i32 %WtPoitColLoc_lenth_1_1, -2" [Sobel_SkLines/src/SeekPoint.cpp:20]   --->   Operation 127 'add' 'WtPoitColLoc_lenth_2' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 128 [1/3] (7.89ns)   --->   "%tmp_s = sitofp i32 %templong_2 to float" [Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 128 'sitofp' 'tmp_s' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_7 : Operation 129 [1/1] (0.78ns)   --->   "%p_rec = add i6 %p_02_rec, 1" [Sobel_SkLines/src/SeekPoint.cpp:65]   --->   Operation 129 'add' 'p_rec' <Predicate = true> <Delay = 0.78> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 130 [1/1] (0.65ns)   --->   "br label %3" [Sobel_SkLines/src/SeekPoint.cpp:38]   --->   Operation 130 'br' <Predicate = true> <Delay = 0.65>
+
+State 8 <SV = 5> <Delay = 1.23>
+ST_8 : Operation 131 [1/1] (0.00ns)   --->   "%WtPoitColLoc_lenth_4 = phi i32 [ %WtPoitColLoc_lenth_1_1, %.preheader ], [ %WtPoitColLoc_lenth_3, %4 ]"   --->   Operation 131 'phi' 'WtPoitColLoc_lenth_4' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 132 [1/1] (0.00ns)   --->   "%WtPoitRowLoc_lenth_4 = phi i32 [ %templong_2, %.preheader ], [ %WtPoitRowLoc_lenth_2, %4 ]"   --->   Operation 132 'phi' 'WtPoitRowLoc_lenth_4' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 133 [1/1] (0.00ns)   --->   "%RandSelet = phi i2 [ 0, %.preheader ], [ %RandSelet_2, %4 ]"   --->   Operation 133 'phi' 'RandSelet' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 134 [1/1] (0.44ns)   --->   "%exitcond = icmp eq i2 %RandSelet, -2" [Sobel_SkLines/src/SeekPoint.cpp:38]   --->   Operation 134 'icmp' 'exitcond' <Predicate = true> <Delay = 0.44> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.05> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 135 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 135 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 136 [1/1] (0.54ns)   --->   "%RandSelet_2 = add i2 %RandSelet, 1" [Sobel_SkLines/src/SeekPoint.cpp:40]   --->   Operation 136 'add' 'RandSelet_2' <Predicate = true> <Delay = 0.54> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 137 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %5, label %4" [Sobel_SkLines/src/SeekPoint.cpp:38]   --->   Operation 137 'br' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 138 [1/1] (0.00ns)   --->   "%tmp_36 = zext i2 %RandSelet to i64" [Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 138 'zext' 'tmp_36' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_8 : Operation 139 [1/1] (0.00ns)   --->   "%SJLB_addr = getelementptr inbounds [100 x float]* @SJLB, i64 0, i64 %tmp_36" [Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 139 'getelementptr' 'SJLB_addr' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_8 : Operation 140 [2/2] (1.23ns)   --->   "%SJLB_load = load float* %SJLB_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 140 'load' 'SJLB_load' <Predicate = (!exitcond)> <Delay = 1.23> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 100> <ROM>
+ST_8 : Operation 141 [2/2] (0.67ns)   --->   "%CalaPoint_0_load = load i32* %CalaPoint_0_addr_1, align 8" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 141 'load' 'CalaPoint_0_load' <Predicate = (exitcond)> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_8 : Operation 142 [2/2] (0.67ns)   --->   "%CalaPoint_0_load_1 = load i32* %CalaPoint_0_addr_2, align 16" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 142 'load' 'CalaPoint_0_load_1' <Predicate = (exitcond)> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_8 : Operation 143 [2/2] (0.67ns)   --->   "%CalaPoint_1_load = load i32* %CalaPoint_1_addr_1, align 4" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 143 'load' 'CalaPoint_1_load' <Predicate = (exitcond)> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_8 : Operation 144 [2/2] (0.67ns)   --->   "%CalaPoint_1_load_1 = load i32* %CalaPoint_1_addr_2, align 16" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 144 'load' 'CalaPoint_1_load_1' <Predicate = (exitcond)> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_8 : Operation 145 [1/1] (0.67ns)   --->   "store i32 %WtPoitColLoc_lenth_2, i32* %WtPoitColLoc_lenth_1" [Sobel_SkLines/src/SeekPoint.cpp:20]   --->   Operation 145 'store' <Predicate = (exitcond)> <Delay = 0.67>
+ST_8 : Operation 146 [1/1] (0.67ns)   --->   "store i32 %WtPoitRowLoc_lenth_1, i32* %templong" [Sobel_SkLines/src/SeekPoint.cpp:19]   --->   Operation 146 'store' <Predicate = (exitcond)> <Delay = 0.67>
+
+State 9 <SV = 6> <Delay = 1.23>
+ST_9 : Operation 147 [1/2] (1.23ns)   --->   "%SJLB_load = load float* %SJLB_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 147 'load' 'SJLB_load' <Predicate = true> <Delay = 1.23> <Core = "ROM_nP">   --->   Core 52 'ROM_nP' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load'> <Ports = 0> <Width = 32> <Depth = 100> <ROM>
+
+State 10 <SV = 7> <Delay = 8.41>
+ST_10 : Operation 148 [2/2] (8.41ns)   --->   "%x_assign_3 = fmul float %tmp_s, %SJLB_load" [Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 148 'fmul' 'x_assign_3' <Predicate = true> <Delay = 8.41> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 1> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 8> <Delay = 8.41>
+ST_11 : Operation 149 [1/2] (8.41ns)   --->   "%x_assign_3 = fmul float %tmp_s, %SJLB_load" [Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 149 'fmul' 'x_assign_3' <Predicate = true> <Delay = 8.41> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 1> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 9> <Delay = 5.25>
+ST_12 : Operation 150 [1/1] (0.00ns)   --->   "%p_Val2_s = bitcast float %x_assign_3 to i32" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:310->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:319->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:12->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 150 'bitcast' 'p_Val2_s' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 151 [1/1] (0.00ns)   --->   "%p_Result_s = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %p_Val2_s, i32 31)" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:310->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:319->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:12->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 151 'bitselect' 'p_Result_s' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 152 [1/1] (0.00ns)   --->   "%tmp_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_Val2_s, i32 23, i32 30) nounwind" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:317->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:319->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:12->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 152 'partselect' 'tmp_V' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 153 [1/1] (0.00ns)   --->   "%tmp_V_1 = trunc i32 %p_Val2_s to i23" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:318->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:319->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:12->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 153 'trunc' 'tmp_V_1' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 154 [1/1] (0.00ns)   --->   "%mantissa_V = call i25 @_ssdm_op_BitConcatenate.i25.i1.i23.i1(i1 true, i23 %tmp_V_1, i1 false)" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:14->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 154 'bitconcatenate' 'mantissa_V' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 155 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_6)   --->   "%mantissa_V_1_i_i_i_c = zext i25 %mantissa_V to i79" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:14->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 155 'zext' 'mantissa_V_1_i_i_i_c' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 156 [1/1] (0.00ns)   --->   "%tmp_i_i_i_i_cast = zext i8 %tmp_V to i9" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:339->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 156 'zext' 'tmp_i_i_i_i_cast' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 157 [1/1] (0.76ns)   --->   "%sh_assign = add i9 -127, %tmp_i_i_i_i_cast" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:339->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 157 'add' 'sh_assign' <Predicate = true> <Delay = 0.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 158 [1/1] (0.00ns)   --->   "%isNeg = call i1 @_ssdm_op_BitSelect.i1.i9.i32(i9 %sh_assign, i32 8)" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 158 'bitselect' 'isNeg' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 159 [1/1] (0.76ns)   --->   "%tmp_i_i_i = sub i8 127, %tmp_V" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 159 'sub' 'tmp_i_i_i' <Predicate = true> <Delay = 0.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 160 [1/1] (0.00ns)   --->   "%tmp_i_i_i_cast = sext i8 %tmp_i_i_i to i9" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 160 'sext' 'tmp_i_i_i_cast' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 161 [1/1] (0.39ns)   --->   "%ush = select i1 %isNeg, i9 %tmp_i_i_i_cast, i9 %sh_assign" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 161 'select' 'ush' <Predicate = true> <Delay = 0.39> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_12 : Operation 162 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_6)   --->   "%sh_assign_2_i_i_i_ca = sext i9 %ush to i32" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 162 'sext' 'sh_assign_2_i_i_i_ca' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 163 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_6)   --->   "%sh_assign_2_i_i_i_ca_1 = sext i9 %ush to i25" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 163 'sext' 'sh_assign_2_i_i_i_ca_1' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 164 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_6)   --->   "%tmp_i_i_i_132 = zext i32 %sh_assign_2_i_i_i_ca to i79" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 164 'zext' 'tmp_i_i_i_132' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 165 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_6)   --->   "%r_V = lshr i25 %mantissa_V, %sh_assign_2_i_i_i_ca_1" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 165 'lshr' 'r_V' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 166 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_6)   --->   "%r_V_1 = shl i79 %mantissa_V_1_i_i_i_c, %tmp_i_i_i_132" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 166 'shl' 'r_V_1' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 1.38> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 167 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_6)   --->   "%tmp_18 = call i1 @_ssdm_op_BitSelect.i1.i25.i32(i25 %r_V, i32 24)" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:20->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 167 'bitselect' 'tmp_18' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 168 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_6)   --->   "%tmp_26 = zext i1 %tmp_18 to i32" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:20->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 168 'zext' 'tmp_26' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 169 [1/1] (0.00ns) (grouped into LUT with out node p_Val2_6)   --->   "%tmp_27 = call i32 @_ssdm_op_PartSelect.i32.i79.i32.i32(i79 %r_V_1, i32 24, i32 55)" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:20->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 169 'partselect' 'tmp_27' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 170 [1/1] (1.38ns) (out node of the LUT)   --->   "%p_Val2_6 = select i1 %isNeg, i32 %tmp_26, i32 %tmp_27" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 170 'select' 'p_Val2_6' <Predicate = true> <Delay = 1.38> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_12 : Operation 171 [1/1] (1.01ns)   --->   "%result_V_1 = sub i32 0, %p_Val2_6" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:58->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 171 'sub' 'result_V_1' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 172 [1/1] (0.44ns)   --->   "%p_Val2_7 = select i1 %p_Result_s, i32 %result_V_1, i32 %p_Val2_6" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:58->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39]   --->   Operation 172 'select' 'p_Val2_7' <Predicate = true> <Delay = 0.44> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.44> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_12 : Operation 173 [1/1] (0.00ns)   --->   "%tmp_37 = sext i32 %p_Val2_7 to i64" [Sobel_SkLines/src/SeekPoint.cpp:41]   --->   Operation 173 'sext' 'tmp_37' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 174 [1/1] (0.00ns)   --->   "%WtPoitRowLoc_addr = getelementptr inbounds [5000 x i32]* %WtPoitRowLoc, i64 0, i64 %tmp_37" [Sobel_SkLines/src/SeekPoint.cpp:41]   --->   Operation 174 'getelementptr' 'WtPoitRowLoc_addr' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 175 [2/2] (1.23ns)   --->   "%WtPoitRowLoc_load = load i32* %WtPoitRowLoc_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:41]   --->   Operation 175 'load' 'WtPoitRowLoc_load' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_12 : Operation 176 [1/1] (0.00ns)   --->   "%WtPoitColLoc_addr = getelementptr inbounds [5000 x i32]* %WtPoitColLoc, i64 0, i64 %tmp_37" [Sobel_SkLines/src/SeekPoint.cpp:42]   --->   Operation 176 'getelementptr' 'WtPoitColLoc_addr' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 177 [2/2] (1.23ns)   --->   "%WtPoitColLoc_load = load i32* %WtPoitColLoc_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:42]   --->   Operation 177 'load' 'WtPoitColLoc_load' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+
+State 13 <SV = 10> <Delay = 1.91>
+ST_13 : Operation 178 [1/2] (1.23ns)   --->   "%WtPoitRowLoc_load = load i32* %WtPoitRowLoc_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:41]   --->   Operation 178 'load' 'WtPoitRowLoc_load' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_13 : Operation 179 [1/1] (0.00ns)   --->   "%CalaPoint_0_addr = getelementptr [2 x i32]* %CalaPoint_0, i64 0, i64 %tmp_36" [Sobel_SkLines/src/SeekPoint.cpp:41]   --->   Operation 179 'getelementptr' 'CalaPoint_0_addr' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 180 [1/1] (0.67ns)   --->   "store i32 %WtPoitRowLoc_load, i32* %CalaPoint_0_addr, align 8" [Sobel_SkLines/src/SeekPoint.cpp:41]   --->   Operation 180 'store' <Predicate = true> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_13 : Operation 181 [1/2] (1.23ns)   --->   "%WtPoitColLoc_load = load i32* %WtPoitColLoc_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:42]   --->   Operation 181 'load' 'WtPoitColLoc_load' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_13 : Operation 182 [1/1] (0.00ns)   --->   "%CalaPoint_1_addr = getelementptr [2 x i32]* %CalaPoint_1, i64 0, i64 %tmp_36" [Sobel_SkLines/src/SeekPoint.cpp:42]   --->   Operation 182 'getelementptr' 'CalaPoint_1_addr' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 183 [1/1] (0.67ns)   --->   "store i32 %WtPoitColLoc_load, i32* %CalaPoint_1_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:42]   --->   Operation 183 'store' <Predicate = true> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+
+State 14 <SV = 11> <Delay = 1.97>
+ST_14 : Operation 184 [1/1] (1.01ns)   --->   "%WtPoitRowLoc_lenth_2 = add nsw i32 -1, %WtPoitRowLoc_lenth_4" [Sobel_SkLines/src/SeekPoint.cpp:43]   --->   Operation 184 'add' 'WtPoitRowLoc_lenth_2' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 185 [2/2] (1.97ns)   --->   "call fastcc void @ListDelete([5000 x i32]* %WtPoitRowLoc, i32 %p_Val2_7, i32 %WtPoitRowLoc_lenth_4)" [Sobel_SkLines/src/SeekPoint.cpp:43]   --->   Operation 185 'call' <Predicate = true> <Delay = 1.97> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_14 : Operation 186 [1/1] (1.01ns)   --->   "%WtPoitColLoc_lenth_3 = add nsw i32 -1, %WtPoitColLoc_lenth_4" [Sobel_SkLines/src/SeekPoint.cpp:44]   --->   Operation 186 'add' 'WtPoitColLoc_lenth_3' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 187 [2/2] (1.97ns)   --->   "call fastcc void @ListDelete([5000 x i32]* %WtPoitColLoc, i32 %p_Val2_7, i32 %WtPoitColLoc_lenth_4)" [Sobel_SkLines/src/SeekPoint.cpp:44]   --->   Operation 187 'call' <Predicate = true> <Delay = 1.97> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 15 <SV = 12> <Delay = 0.00>
+ST_15 : Operation 188 [1/2] (0.00ns)   --->   "call fastcc void @ListDelete([5000 x i32]* %WtPoitRowLoc, i32 %p_Val2_7, i32 %WtPoitRowLoc_lenth_4)" [Sobel_SkLines/src/SeekPoint.cpp:43]   --->   Operation 188 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_15 : Operation 189 [1/2] (0.00ns)   --->   "call fastcc void @ListDelete([5000 x i32]* %WtPoitColLoc, i32 %p_Val2_7, i32 %WtPoitColLoc_lenth_4)" [Sobel_SkLines/src/SeekPoint.cpp:44]   --->   Operation 189 'call' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_15 : Operation 190 [1/1] (0.00ns)   --->   "br label %3" [Sobel_SkLines/src/SeekPoint.cpp:38]   --->   Operation 190 'br' <Predicate = true> <Delay = 0.00>
+
+State 16 <SV = 6> <Delay = 1.69>
+ST_16 : Operation 191 [1/2] (0.67ns)   --->   "%CalaPoint_0_load = load i32* %CalaPoint_0_addr_1, align 8" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 191 'load' 'CalaPoint_0_load' <Predicate = true> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_16 : Operation 192 [1/2] (0.67ns)   --->   "%CalaPoint_0_load_1 = load i32* %CalaPoint_0_addr_2, align 16" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 192 'load' 'CalaPoint_0_load_1' <Predicate = true> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_16 : Operation 193 [1/1] (1.01ns)   --->   "%tmp_25 = sub nsw i32 %CalaPoint_0_load, %CalaPoint_0_load_1" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 193 'sub' 'tmp_25' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 194 [1/2] (0.67ns)   --->   "%CalaPoint_1_load = load i32* %CalaPoint_1_addr_1, align 4" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 194 'load' 'CalaPoint_1_load' <Predicate = true> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_16 : Operation 195 [1/2] (0.67ns)   --->   "%CalaPoint_1_load_1 = load i32* %CalaPoint_1_addr_2, align 16" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 195 'load' 'CalaPoint_1_load_1' <Predicate = true> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_16 : Operation 196 [1/1] (1.01ns)   --->   "%tmp_29 = sub nsw i32 %CalaPoint_1_load, %CalaPoint_1_load_1" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 196 'sub' 'tmp_29' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 7> <Delay = 7.89>
+ST_17 : Operation 197 [3/3] (7.89ns)   --->   "%tmp_28 = sitofp i32 %tmp_25 to float" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 197 'sitofp' 'tmp_28' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_17 : Operation 198 [3/3] (7.89ns)   --->   "%tmp_30 = sitofp i32 %tmp_29 to float" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 198 'sitofp' 'tmp_30' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 18 <SV = 8> <Delay = 7.89>
+ST_18 : Operation 199 [2/3] (7.89ns)   --->   "%tmp_28 = sitofp i32 %tmp_25 to float" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 199 'sitofp' 'tmp_28' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_18 : Operation 200 [2/3] (7.89ns)   --->   "%tmp_30 = sitofp i32 %tmp_29 to float" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 200 'sitofp' 'tmp_30' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 19 <SV = 9> <Delay = 7.89>
+ST_19 : Operation 201 [1/3] (7.89ns)   --->   "%tmp_28 = sitofp i32 %tmp_25 to float" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 201 'sitofp' 'tmp_28' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_19 : Operation 202 [1/3] (7.89ns)   --->   "%tmp_30 = sitofp i32 %tmp_29 to float" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 202 'sitofp' 'tmp_30' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 20 <SV = 10> <Delay = 8.27>
+ST_20 : Operation 203 [8/8] (8.27ns)   --->   "%tmp_31 = fdiv float %tmp_28, %tmp_30" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 203 'fdiv' 'tmp_31' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 21 <SV = 11> <Delay = 8.27>
+ST_21 : Operation 204 [7/8] (8.27ns)   --->   "%tmp_31 = fdiv float %tmp_28, %tmp_30" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 204 'fdiv' 'tmp_31' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 22 <SV = 12> <Delay = 8.27>
+ST_22 : Operation 205 [6/8] (8.27ns)   --->   "%tmp_31 = fdiv float %tmp_28, %tmp_30" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 205 'fdiv' 'tmp_31' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 23 <SV = 13> <Delay = 8.27>
+ST_23 : Operation 206 [5/8] (8.27ns)   --->   "%tmp_31 = fdiv float %tmp_28, %tmp_30" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 206 'fdiv' 'tmp_31' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 24 <SV = 14> <Delay = 8.27>
+ST_24 : Operation 207 [4/8] (8.27ns)   --->   "%tmp_31 = fdiv float %tmp_28, %tmp_30" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 207 'fdiv' 'tmp_31' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 15> <Delay = 8.27>
+ST_25 : Operation 208 [3/8] (8.27ns)   --->   "%tmp_31 = fdiv float %tmp_28, %tmp_30" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 208 'fdiv' 'tmp_31' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 209 [3/3] (7.89ns)   --->   "%tmp_33 = sitofp i32 %CalaPoint_1_load_1 to float" [Sobel_SkLines/src/SeekPoint.cpp:47]   --->   Operation 209 'sitofp' 'tmp_33' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 26 <SV = 16> <Delay = 8.27>
+ST_26 : Operation 210 [2/8] (8.27ns)   --->   "%tmp_31 = fdiv float %tmp_28, %tmp_30" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 210 'fdiv' 'tmp_31' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 211 [2/3] (7.89ns)   --->   "%tmp_33 = sitofp i32 %CalaPoint_1_load_1 to float" [Sobel_SkLines/src/SeekPoint.cpp:47]   --->   Operation 211 'sitofp' 'tmp_33' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 27 <SV = 17> <Delay = 8.27>
+ST_27 : Operation 212 [1/8] (8.27ns)   --->   "%tmp_31 = fdiv float %tmp_28, %tmp_30" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 212 'fdiv' 'tmp_31' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 213 [3/3] (7.89ns)   --->   "%tmp_32 = sitofp i32 %CalaPoint_0_load_1 to float" [Sobel_SkLines/src/SeekPoint.cpp:47]   --->   Operation 213 'sitofp' 'tmp_32' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_27 : Operation 214 [1/3] (7.89ns)   --->   "%tmp_33 = sitofp i32 %CalaPoint_1_load_1 to float" [Sobel_SkLines/src/SeekPoint.cpp:47]   --->   Operation 214 'sitofp' 'tmp_33' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+
+State 28 <SV = 18> <Delay = 8.41>
+ST_28 : Operation 215 [1/1] (1.23ns)   --->   "store float %tmp_31, float* %K_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:46]   --->   Operation 215 'store' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_28 : Operation 216 [2/3] (7.89ns)   --->   "%tmp_32 = sitofp i32 %CalaPoint_0_load_1 to float" [Sobel_SkLines/src/SeekPoint.cpp:47]   --->   Operation 216 'sitofp' 'tmp_32' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_28 : Operation 217 [2/2] (8.41ns)   --->   "%tmp_34 = fmul float %tmp_31, %tmp_33" [Sobel_SkLines/src/SeekPoint.cpp:47]   --->   Operation 217 'fmul' 'tmp_34' <Predicate = true> <Delay = 8.41> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 1> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 29 <SV = 19> <Delay = 8.41>
+ST_29 : Operation 218 [1/3] (7.89ns)   --->   "%tmp_32 = sitofp i32 %CalaPoint_0_load_1 to float" [Sobel_SkLines/src/SeekPoint.cpp:47]   --->   Operation 218 'sitofp' 'tmp_32' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_29 : Operation 219 [1/2] (8.41ns)   --->   "%tmp_34 = fmul float %tmp_31, %tmp_33" [Sobel_SkLines/src/SeekPoint.cpp:47]   --->   Operation 219 'fmul' 'tmp_34' <Predicate = true> <Delay = 8.41> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 1> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 30 <SV = 20> <Delay = 6.43>
+ST_30 : Operation 220 [4/4] (6.43ns)   --->   "%tmp_35 = fsub float %tmp_32, %tmp_34" [Sobel_SkLines/src/SeekPoint.cpp:47]   --->   Operation 220 'fsub' 'tmp_35' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 31 <SV = 21> <Delay = 6.43>
+ST_31 : Operation 221 [3/4] (6.43ns)   --->   "%tmp_35 = fsub float %tmp_32, %tmp_34" [Sobel_SkLines/src/SeekPoint.cpp:47]   --->   Operation 221 'fsub' 'tmp_35' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 32 <SV = 22> <Delay = 6.43>
+ST_32 : Operation 222 [2/4] (6.43ns)   --->   "%tmp_35 = fsub float %tmp_32, %tmp_34" [Sobel_SkLines/src/SeekPoint.cpp:47]   --->   Operation 222 'fsub' 'tmp_35' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 33 <SV = 23> <Delay = 7.67>
+ST_33 : Operation 223 [1/4] (6.43ns)   --->   "%tmp_35 = fsub float %tmp_32, %tmp_34" [Sobel_SkLines/src/SeekPoint.cpp:47]   --->   Operation 223 'fsub' 'tmp_35' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 224 [1/1] (1.23ns)   --->   "store float %tmp_35, float* %B_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:47]   --->   Operation 224 'store' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_33 : Operation 225 [1/1] (1.23ns)   --->   "store i32 0, i32* %NumPoint_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:48]   --->   Operation 225 'store' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_33 : Operation 226 [1/1] (0.65ns)   --->   "br label %6" [Sobel_SkLines/src/SeekPoint.cpp:50]   --->   Operation 226 'br' <Predicate = true> <Delay = 0.65>
+
+State 34 <SV = 24> <Delay = 1.23>
+ST_34 : Operation 227 [1/1] (0.00ns)   --->   "%templong1 = phi i32 [ %templong_2, %5 ], [ %templong_1, %._crit_edge1 ]"   --->   Operation 227 'phi' 'templong1' <Predicate = true> <Delay = 0.00>
+ST_34 : Operation 228 [1/1] (0.00ns)   --->   "%i2 = phi i32 [ 0, %5 ], [ %i_6, %._crit_edge1 ]"   --->   Operation 228 'phi' 'i2' <Predicate = true> <Delay = 0.00>
+ST_34 : Operation 229 [1/1] (0.99ns)   --->   "%tmp_40 = icmp slt i32 %i2, %templong1" [Sobel_SkLines/src/SeekPoint.cpp:50]   --->   Operation 229 'icmp' 'tmp_40' <Predicate = true> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.05> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_34 : Operation 230 [1/1] (0.00ns)   --->   "br i1 %tmp_40, label %7, label %.preheader.loopexit" [Sobel_SkLines/src/SeekPoint.cpp:50]   --->   Operation 230 'br' <Predicate = true> <Delay = 0.00>
+ST_34 : Operation 231 [2/2] (1.23ns)   --->   "%K_load = load float* %K_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 231 'load' 'K_load' <Predicate = (tmp_40)> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_34 : Operation 232 [1/1] (0.00ns)   --->   "%tmp_41 = sext i32 %i2 to i64" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 232 'sext' 'tmp_41' <Predicate = (tmp_40)> <Delay = 0.00>
+ST_34 : Operation 233 [1/1] (0.00ns)   --->   "%WtPoitColLoc_addr_1 = getelementptr inbounds [5000 x i32]* %WtPoitColLoc, i64 0, i64 %tmp_41" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 233 'getelementptr' 'WtPoitColLoc_addr_1' <Predicate = (tmp_40)> <Delay = 0.00>
+ST_34 : Operation 234 [2/2] (1.23ns)   --->   "%WtPoitColLoc_load_1 = load i32* %WtPoitColLoc_addr_1, align 4" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 234 'load' 'WtPoitColLoc_load_1' <Predicate = (tmp_40)> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_34 : Operation 235 [1/1] (0.00ns)   --->   "%WtPoitRowLoc_addr_1 = getelementptr inbounds [5000 x i32]* %WtPoitRowLoc, i64 0, i64 %tmp_41" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 235 'getelementptr' 'WtPoitRowLoc_addr_1' <Predicate = (tmp_40)> <Delay = 0.00>
+ST_34 : Operation 236 [2/2] (1.23ns)   --->   "%WtPoitRowLoc_load_1 = load i32* %WtPoitRowLoc_addr_1, align 4" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 236 'load' 'WtPoitRowLoc_load_1' <Predicate = (tmp_40)> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_34 : Operation 237 [1/1] (0.00ns)   --->   "br label %.preheader"   --->   Operation 237 'br' <Predicate = (!tmp_40)> <Delay = 0.00>
+
+State 35 <SV = 25> <Delay = 1.23>
+ST_35 : Operation 238 [1/2] (1.23ns)   --->   "%K_load = load float* %K_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 238 'load' 'K_load' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_35 : Operation 239 [1/2] (1.23ns)   --->   "%WtPoitColLoc_load_1 = load i32* %WtPoitColLoc_addr_1, align 4" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 239 'load' 'WtPoitColLoc_load_1' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_35 : Operation 240 [1/2] (1.23ns)   --->   "%WtPoitRowLoc_load_1 = load i32* %WtPoitRowLoc_addr_1, align 4" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 240 'load' 'WtPoitRowLoc_load_1' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+
+State 36 <SV = 26> <Delay = 8.41>
+ST_36 : Operation 241 [3/3] (7.89ns)   --->   "%tmp_42 = sitofp i32 %WtPoitColLoc_load_1 to float" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 241 'sitofp' 'tmp_42' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_36 : Operation 242 [2/2] (8.41ns)   --->   "%tmp_46 = fmul float %K_load, %K_load" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 242 'fmul' 'tmp_46' <Predicate = true> <Delay = 8.41> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 1> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 37 <SV = 27> <Delay = 8.41>
+ST_37 : Operation 243 [2/3] (7.89ns)   --->   "%tmp_42 = sitofp i32 %WtPoitColLoc_load_1 to float" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 243 'sitofp' 'tmp_42' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_37 : Operation 244 [1/2] (8.41ns)   --->   "%tmp_46 = fmul float %K_load, %K_load" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 244 'fmul' 'tmp_46' <Predicate = true> <Delay = 8.41> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 1> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 38 <SV = 28> <Delay = 7.89>
+ST_38 : Operation 245 [1/3] (7.89ns)   --->   "%tmp_42 = sitofp i32 %WtPoitColLoc_load_1 to float" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 245 'sitofp' 'tmp_42' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_38 : Operation 246 [3/3] (7.89ns)   --->   "%tmp_44 = sitofp i32 %WtPoitRowLoc_load_1 to float" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 246 'sitofp' 'tmp_44' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_38 : Operation 247 [4/4] (6.43ns)   --->   "%x_assign = fadd float %tmp_46, 1.000000e+00" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 247 'fadd' 'x_assign' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 39 <SV = 29> <Delay = 8.41>
+ST_39 : Operation 248 [2/2] (8.41ns)   --->   "%tmp_43 = fmul float %K_load, %tmp_42" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 248 'fmul' 'tmp_43' <Predicate = true> <Delay = 8.41> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 1> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_39 : Operation 249 [2/3] (7.89ns)   --->   "%tmp_44 = sitofp i32 %WtPoitRowLoc_load_1 to float" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 249 'sitofp' 'tmp_44' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_39 : Operation 250 [3/4] (6.43ns)   --->   "%x_assign = fadd float %tmp_46, 1.000000e+00" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 250 'fadd' 'x_assign' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 40 <SV = 30> <Delay = 8.41>
+ST_40 : Operation 251 [1/2] (8.41ns)   --->   "%tmp_43 = fmul float %K_load, %tmp_42" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 251 'fmul' 'tmp_43' <Predicate = true> <Delay = 8.41> <Core = "FMul">   --->   Core 105 'FMul' <Latency = 1> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_40 : Operation 252 [1/3] (7.89ns)   --->   "%tmp_44 = sitofp i32 %WtPoitRowLoc_load_1 to float" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 252 'sitofp' 'tmp_44' <Predicate = true> <Delay = 7.89> <Core = "Int2Float">   --->   Core 111 'Int2Float' <Latency = 2> <II = 1> <Delay = 7.89> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_40 : Operation 253 [2/4] (6.43ns)   --->   "%x_assign = fadd float %tmp_46, 1.000000e+00" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 253 'fadd' 'x_assign' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 41 <SV = 31> <Delay = 6.43>
+ST_41 : Operation 254 [4/4] (6.43ns)   --->   "%tmp_45 = fsub float %tmp_43, %tmp_44" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 254 'fsub' 'tmp_45' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_41 : Operation 255 [1/4] (6.43ns)   --->   "%x_assign = fadd float %tmp_46, 1.000000e+00" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 255 'fadd' 'x_assign' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+
+State 42 <SV = 32> <Delay = 8.41>
+ST_42 : Operation 256 [3/4] (6.43ns)   --->   "%tmp_45 = fsub float %tmp_43, %tmp_44" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 256 'fsub' 'tmp_45' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_42 : Operation 257 [7/7] (8.41ns)   --->   "%tmp_i = call float @llvm.sqrt.f32(float %x_assign) nounwind" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 257 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 8.41> <Core = "FSqrt">   --->   Core 107 'FSqrt' <Latency = 6> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 43 <SV = 33> <Delay = 8.41>
+ST_43 : Operation 258 [2/4] (6.43ns)   --->   "%tmp_45 = fsub float %tmp_43, %tmp_44" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 258 'fsub' 'tmp_45' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_43 : Operation 259 [6/7] (8.41ns)   --->   "%tmp_i = call float @llvm.sqrt.f32(float %x_assign) nounwind" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 259 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 8.41> <Core = "FSqrt">   --->   Core 107 'FSqrt' <Latency = 6> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 44 <SV = 34> <Delay = 8.41>
+ST_44 : Operation 260 [1/4] (6.43ns)   --->   "%tmp_45 = fsub float %tmp_43, %tmp_44" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 260 'fsub' 'tmp_45' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_44 : Operation 261 [2/2] (1.23ns)   --->   "%B_load = load float* %B_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 261 'load' 'B_load' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_44 : Operation 262 [5/7] (8.41ns)   --->   "%tmp_i = call float @llvm.sqrt.f32(float %x_assign) nounwind" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 262 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 8.41> <Core = "FSqrt">   --->   Core 107 'FSqrt' <Latency = 6> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 45 <SV = 35> <Delay = 8.41>
+ST_45 : Operation 263 [1/2] (1.23ns)   --->   "%B_load = load float* %B_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 263 'load' 'B_load' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_45 : Operation 264 [4/4] (6.43ns)   --->   "%x_assign_4 = fadd float %tmp_45, %B_load" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 264 'fadd' 'x_assign_4' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_45 : Operation 265 [4/7] (8.41ns)   --->   "%tmp_i = call float @llvm.sqrt.f32(float %x_assign) nounwind" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 265 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 8.41> <Core = "FSqrt">   --->   Core 107 'FSqrt' <Latency = 6> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 46 <SV = 36> <Delay = 8.41>
+ST_46 : Operation 266 [3/4] (6.43ns)   --->   "%x_assign_4 = fadd float %tmp_45, %B_load" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 266 'fadd' 'x_assign_4' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_46 : Operation 267 [3/7] (8.41ns)   --->   "%tmp_i = call float @llvm.sqrt.f32(float %x_assign) nounwind" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 267 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 8.41> <Core = "FSqrt">   --->   Core 107 'FSqrt' <Latency = 6> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 47 <SV = 37> <Delay = 8.41>
+ST_47 : Operation 268 [2/4] (6.43ns)   --->   "%x_assign_4 = fadd float %tmp_45, %B_load" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 268 'fadd' 'x_assign_4' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_47 : Operation 269 [2/7] (8.41ns)   --->   "%tmp_i = call float @llvm.sqrt.f32(float %x_assign) nounwind" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 269 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 8.41> <Core = "FSqrt">   --->   Core 107 'FSqrt' <Latency = 6> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 48 <SV = 38> <Delay = 8.41>
+ST_48 : Operation 270 [1/4] (6.43ns)   --->   "%x_assign_4 = fadd float %tmp_45, %B_load" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 270 'fadd' 'x_assign_4' <Predicate = true> <Delay = 6.43> <Core = "FAddSub">   --->   Core 104 'FAddSub' <Latency = 3> <II = 1> <Delay = 6.43> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_48 : Operation 271 [1/1] (0.00ns)   --->   "%p_Val2_5 = bitcast float %x_assign_4 to i32" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:310->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:319->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:11->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_fabs.h:12->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/absfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 271 'bitcast' 'p_Val2_5' <Predicate = true> <Delay = 0.00>
+ST_48 : Operation 272 [1/1] (0.00ns)   --->   "%tmp_19 = trunc i32 %p_Val2_5 to i31" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:335->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:348->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:369->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:13->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_fabs.h:12->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/absfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 272 'trunc' 'tmp_19' <Predicate = true> <Delay = 0.00>
+ST_48 : Operation 273 [1/7] (8.41ns)   --->   "%tmp_i = call float @llvm.sqrt.f32(float %x_assign) nounwind" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 273 'fsqrt' 'tmp_i' <Predicate = true> <Delay = 8.41> <Core = "FSqrt">   --->   Core 107 'FSqrt' <Latency = 6> <II = 1> <Delay = 8.41> <FuncUnit> <Opcode : 'fsqrt'> <InPorts = 1> <OutPorts = 1>
+
+State 49 <SV = 39> <Delay = 8.27>
+ST_49 : Operation 274 [1/1] (0.00ns)   --->   "%p_Result_1 = call i32 @_ssdm_op_BitConcatenate.i32.i1.i31(i1 false, i31 %tmp_19)" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:335->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:348->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:369->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:13->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_fabs.h:12->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/absfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 274 'bitconcatenate' 'p_Result_1' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 275 [1/1] (0.00ns)   --->   "%ret_i_i_i_i_i = bitcast i32 %p_Result_1 to float" [r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:348->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:369->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint/hls_copysign.h:13->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_fabs.h:12->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/absfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 275 'bitcast' 'ret_i_i_i_i_i' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 276 [8/8] (8.27ns)   --->   "%d = fdiv float %ret_i_i_i_i_i, %tmp_i" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 276 'fdiv' 'd' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 50 <SV = 40> <Delay = 8.27>
+ST_50 : Operation 277 [7/8] (8.27ns)   --->   "%d = fdiv float %ret_i_i_i_i_i, %tmp_i" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 277 'fdiv' 'd' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 51 <SV = 41> <Delay = 8.27>
+ST_51 : Operation 278 [6/8] (8.27ns)   --->   "%d = fdiv float %ret_i_i_i_i_i, %tmp_i" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 278 'fdiv' 'd' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 52 <SV = 42> <Delay = 8.27>
+ST_52 : Operation 279 [5/8] (8.27ns)   --->   "%d = fdiv float %ret_i_i_i_i_i, %tmp_i" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 279 'fdiv' 'd' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 53 <SV = 43> <Delay = 8.27>
+ST_53 : Operation 280 [4/8] (8.27ns)   --->   "%d = fdiv float %ret_i_i_i_i_i, %tmp_i" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 280 'fdiv' 'd' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 54 <SV = 44> <Delay = 8.27>
+ST_54 : Operation 281 [3/8] (8.27ns)   --->   "%d = fdiv float %ret_i_i_i_i_i, %tmp_i" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 281 'fdiv' 'd' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 55 <SV = 45> <Delay = 8.27>
+ST_55 : Operation 282 [2/8] (8.27ns)   --->   "%d = fdiv float %ret_i_i_i_i_i, %tmp_i" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 282 'fdiv' 'd' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 56 <SV = 46> <Delay = 8.27>
+ST_56 : Operation 283 [1/8] (8.27ns)   --->   "%d = fdiv float %ret_i_i_i_i_i, %tmp_i" [Sobel_SkLines/src/SeekPoint.cpp:53]   --->   Operation 283 'fdiv' 'd' <Predicate = true> <Delay = 8.27> <Core = "FDiv">   --->   Core 106 'FDiv' <Latency = 7> <II = 1> <Delay = 8.27> <FuncUnit> <Opcode : 'fdiv' 'frem'> <InPorts = 2> <OutPorts = 1>
+
+State 57 <SV = 47> <Delay = 4.42>
+ST_57 : Operation 284 [1/1] (0.00ns)   --->   "%d_to_int = bitcast float %d to i32" [Sobel_SkLines/src/SeekPoint.cpp:54]   --->   Operation 284 'bitcast' 'd_to_int' <Predicate = true> <Delay = 0.00>
+ST_57 : Operation 285 [1/1] (0.00ns)   --->   "%tmp_47 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %d_to_int, i32 23, i32 30)" [Sobel_SkLines/src/SeekPoint.cpp:54]   --->   Operation 285 'partselect' 'tmp_47' <Predicate = true> <Delay = 0.00>
+ST_57 : Operation 286 [1/1] (0.00ns)   --->   "%tmp_20 = trunc i32 %d_to_int to i23" [Sobel_SkLines/src/SeekPoint.cpp:54]   --->   Operation 286 'trunc' 'tmp_20' <Predicate = true> <Delay = 0.00>
+ST_57 : Operation 287 [1/1] (0.84ns)   --->   "%notlhs = icmp ne i8 %tmp_47, -1" [Sobel_SkLines/src/SeekPoint.cpp:54]   --->   Operation 287 'icmp' 'notlhs' <Predicate = true> <Delay = 0.84> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.05> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_57 : Operation 288 [1/1] (1.05ns)   --->   "%notrhs = icmp eq i23 %tmp_20, 0" [Sobel_SkLines/src/SeekPoint.cpp:54]   --->   Operation 288 'icmp' 'notrhs' <Predicate = true> <Delay = 1.05> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.05> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_57 : Operation 289 [1/1] (0.00ns) (grouped into LUT with out node tmp_50)   --->   "%tmp_48 = or i1 %notrhs, %notlhs" [Sobel_SkLines/src/SeekPoint.cpp:54]   --->   Operation 289 'or' 'tmp_48' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_57 : Operation 290 [1/1] (3.47ns)   --->   "%tmp_49 = fcmp olt float %d, 5.000000e+00" [Sobel_SkLines/src/SeekPoint.cpp:54]   --->   Operation 290 'fcmp' 'tmp_49' <Predicate = true> <Delay = 3.47> <Core = "FCmp">   --->   Core 110 'FCmp' <Latency = 0> <II = 1> <Delay = 3.47> <FuncUnit> <Opcode : 'fcmp'> <InPorts = 2> <OutPorts = 1>
+ST_57 : Operation 291 [1/1] (0.28ns) (out node of the LUT)   --->   "%tmp_50 = and i1 %tmp_48, %tmp_49" [Sobel_SkLines/src/SeekPoint.cpp:54]   --->   Operation 291 'and' 'tmp_50' <Predicate = true> <Delay = 0.28> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_57 : Operation 292 [1/1] (0.65ns)   --->   "br i1 %tmp_50, label %8, label %._crit_edge1" [Sobel_SkLines/src/SeekPoint.cpp:54]   --->   Operation 292 'br' <Predicate = true> <Delay = 0.65>
+ST_57 : Operation 293 [1/1] (0.00ns)   --->   "%templong_load = load i32* %templong" [Sobel_SkLines/src/SeekPoint.cpp:56]   --->   Operation 293 'load' 'templong_load' <Predicate = (tmp_50)> <Delay = 0.00>
+ST_57 : Operation 294 [1/1] (0.00ns)   --->   "%WtPoitColLoc_lenth_1_2 = load i32* %WtPoitColLoc_lenth_1" [Sobel_SkLines/src/SeekPoint.cpp:57]   --->   Operation 294 'load' 'WtPoitColLoc_lenth_1_2' <Predicate = (tmp_50)> <Delay = 0.00>
+ST_57 : Operation 295 [2/2] (1.97ns)   --->   "call fastcc void @ListDelete([5000 x i32]* %WtPoitRowLoc, i32 %i2, i32 %templong_load)" [Sobel_SkLines/src/SeekPoint.cpp:56]   --->   Operation 295 'call' <Predicate = (tmp_50)> <Delay = 1.97> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_57 : Operation 296 [1/1] (1.01ns)   --->   "%WtPoitColLoc_lenth_5 = add nsw i32 %WtPoitColLoc_lenth_1_2, -1" [Sobel_SkLines/src/SeekPoint.cpp:57]   --->   Operation 296 'add' 'WtPoitColLoc_lenth_5' <Predicate = (tmp_50)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_57 : Operation 297 [2/2] (1.97ns)   --->   "call fastcc void @ListDelete([5000 x i32]* %WtPoitColLoc, i32 %i2, i32 %WtPoitColLoc_lenth_1_2)" [Sobel_SkLines/src/SeekPoint.cpp:57]   --->   Operation 297 'call' <Predicate = (tmp_50)> <Delay = 1.97> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_57 : Operation 298 [2/2] (1.23ns)   --->   "%NumPoint_load = load i32* %NumPoint_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:60]   --->   Operation 298 'load' 'NumPoint_load' <Predicate = (tmp_50)> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_57 : Operation 299 [1/1] (0.67ns)   --->   "store i32 %WtPoitColLoc_lenth_5, i32* %WtPoitColLoc_lenth_1" [Sobel_SkLines/src/SeekPoint.cpp:57]   --->   Operation 299 'store' <Predicate = (tmp_50)> <Delay = 0.67>
+
+State 58 <SV = 48> <Delay = 3.49>
+ST_58 : Operation 300 [1/1] (1.01ns)   --->   "%WtPoitRowLoc_lenth_5 = add nsw i32 %templong_load, -1" [Sobel_SkLines/src/SeekPoint.cpp:56]   --->   Operation 300 'add' 'WtPoitRowLoc_lenth_5' <Predicate = (tmp_50)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_58 : Operation 301 [1/2] (0.00ns)   --->   "call fastcc void @ListDelete([5000 x i32]* %WtPoitRowLoc, i32 %i2, i32 %templong_load)" [Sobel_SkLines/src/SeekPoint.cpp:56]   --->   Operation 301 'call' <Predicate = (tmp_50)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_58 : Operation 302 [1/2] (0.00ns)   --->   "call fastcc void @ListDelete([5000 x i32]* %WtPoitColLoc, i32 %i2, i32 %WtPoitColLoc_lenth_1_2)" [Sobel_SkLines/src/SeekPoint.cpp:57]   --->   Operation 302 'call' <Predicate = (tmp_50)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_58 : Operation 303 [1/1] (1.01ns)   --->   "%i_5 = add nsw i32 %i2, -1" [Sobel_SkLines/src/SeekPoint.cpp:58]   --->   Operation 303 'add' 'i_5' <Predicate = (tmp_50)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_58 : Operation 304 [1/2] (1.23ns)   --->   "%NumPoint_load = load i32* %NumPoint_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:60]   --->   Operation 304 'load' 'NumPoint_load' <Predicate = (tmp_50)> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_58 : Operation 305 [1/1] (1.01ns)   --->   "%tmp_51 = add nsw i32 %NumPoint_load, 1" [Sobel_SkLines/src/SeekPoint.cpp:60]   --->   Operation 305 'add' 'tmp_51' <Predicate = (tmp_50)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_58 : Operation 306 [1/1] (1.23ns)   --->   "store i32 %tmp_51, i32* %NumPoint_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:60]   --->   Operation 306 'store' <Predicate = (tmp_50)> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 50> <RAM>
+ST_58 : Operation 307 [1/1] (0.67ns)   --->   "store i32 %WtPoitRowLoc_lenth_5, i32* %templong" [Sobel_SkLines/src/SeekPoint.cpp:59]   --->   Operation 307 'store' <Predicate = (tmp_50)> <Delay = 0.67>
+ST_58 : Operation 308 [1/1] (0.65ns)   --->   "br label %._crit_edge1" [Sobel_SkLines/src/SeekPoint.cpp:61]   --->   Operation 308 'br' <Predicate = (tmp_50)> <Delay = 0.65>
+ST_58 : Operation 309 [1/1] (0.00ns)   --->   "%templong_1 = phi i32 [ %WtPoitRowLoc_lenth_5, %8 ], [ %templong1, %7 ]"   --->   Operation 309 'phi' 'templong_1' <Predicate = true> <Delay = 0.00>
+ST_58 : Operation 310 [1/1] (0.00ns) (grouped into LUT with out node i_6)   --->   "%i2_1 = phi i32 [ %i_5, %8 ], [ %i2, %7 ]"   --->   Operation 310 'phi' 'i2_1' <Predicate = true> <Delay = 0.00>
+ST_58 : Operation 311 [1/1] (1.01ns) (out node of the LUT)   --->   "%i_6 = add nsw i32 %i2_1, 1" [Sobel_SkLines/src/SeekPoint.cpp:50]   --->   Operation 311 'add' 'i_6' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_58 : Operation 312 [1/1] (0.00ns)   --->   "br label %6" [Sobel_SkLines/src/SeekPoint.cpp:50]   --->   Operation 312 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	'alloca' operation ('WtPoitRowLoc_lenth') [6]  (0 ns)
+	'store' operation of constant 0 on local variable 'WtPoitRowLoc_lenth' [16]  (0.656 ns)
+
+ <State 2>: 0.849ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', Sobel_SkLines/src/SeekPoint.cpp:14) [19]  (0 ns)
+	'icmp' operation ('exitcond9', Sobel_SkLines/src/SeekPoint.cpp:14) [22]  (0.849 ns)
+
+ <State 3>: 2.69ns
+The critical path consists of the following:
+	fifo read on port 'src_data_stream_V' (D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/SeekPoint.cpp:16) [38]  (1.84 ns)
+	'icmp' operation ('tmp_24', Sobel_SkLines/src/SeekPoint.cpp:17) [40]  (0.849 ns)
+
+ <State 4>: 0ns
+The critical path consists of the following:
+
+ <State 5>: 7.89ns
+The critical path consists of the following:
+	'load' operation ('templong', Sobel_SkLines/src/SeekPoint.cpp:19) on local variable 'templong' [71]  (0 ns)
+	'sitofp' operation ('tmp_s', Sobel_SkLines/src/SeekPoint.cpp:39) [80]  (7.89 ns)
+
+ <State 6>: 7.89ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_s', Sobel_SkLines/src/SeekPoint.cpp:39) [80]  (7.89 ns)
+
+ <State 7>: 7.89ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_s', Sobel_SkLines/src/SeekPoint.cpp:39) [80]  (7.89 ns)
+
+ <State 8>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('RandSelet') with incoming values : ('RandSelet', Sobel_SkLines/src/SeekPoint.cpp:40) [86]  (0 ns)
+	'getelementptr' operation ('SJLB_addr', Sobel_SkLines/src/SeekPoint.cpp:39) [93]  (0 ns)
+	'load' operation ('SJLB_load', Sobel_SkLines/src/SeekPoint.cpp:39) on array 'SJLB' [94]  (1.24 ns)
+
+ <State 9>: 1.24ns
+The critical path consists of the following:
+	'load' operation ('SJLB_load', Sobel_SkLines/src/SeekPoint.cpp:39) on array 'SJLB' [94]  (1.24 ns)
+
+ <State 10>: 8.42ns
+The critical path consists of the following:
+	'fmul' operation ('x', Sobel_SkLines/src/SeekPoint.cpp:39) [95]  (8.42 ns)
+
+ <State 11>: 8.42ns
+The critical path consists of the following:
+	'fmul' operation ('x', Sobel_SkLines/src/SeekPoint.cpp:39) [95]  (8.42 ns)
+
+ <State 12>: 5.25ns
+The critical path consists of the following:
+	'add' operation ('sh', r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/src/hls\utils/x_hls_utils.h:339->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39) [103]  (0.765 ns)
+	'select' operation ('sh', r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39) [107]  (0.398 ns)
+	'shl' operation ('r.V', r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39) [112]  (0 ns)
+	'select' operation ('__Val2__', r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:17->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39) [116]  (1.39 ns)
+	'sub' operation ('result.V', r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:58->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39) [117]  (1.02 ns)
+	'select' operation ('__Val2__', r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:58->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:116->r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:50->Sobel_SkLines/src/SeekPoint.cpp:39) [118]  (0.449 ns)
+	'getelementptr' operation ('WtPoitRowLoc_addr', Sobel_SkLines/src/SeekPoint.cpp:41) [120]  (0 ns)
+	'load' operation ('WtPoitRowLoc_load', Sobel_SkLines/src/SeekPoint.cpp:41) on array 'WtPoitRowLoc', Sobel_SkLines/src/SeekPoint.cpp:11 [121]  (1.24 ns)
+
+ <State 13>: 1.91ns
+The critical path consists of the following:
+	'load' operation ('WtPoitRowLoc_load', Sobel_SkLines/src/SeekPoint.cpp:41) on array 'WtPoitRowLoc', Sobel_SkLines/src/SeekPoint.cpp:11 [121]  (1.24 ns)
+	'store' operation (Sobel_SkLines/src/SeekPoint.cpp:41) of variable 'WtPoitRowLoc_load', Sobel_SkLines/src/SeekPoint.cpp:41 on array 'CalaPoint[0]', Sobel_SkLines/src/SeekPoint.cpp:37 [123]  (0.677 ns)
+
+ <State 14>: 1.97ns
+The critical path consists of the following:
+	'call' operation (Sobel_SkLines/src/SeekPoint.cpp:43) to 'ListDelete' [129]  (1.97 ns)
+
+ <State 15>: 0ns
+The critical path consists of the following:
+
+ <State 16>: 1.69ns
+The critical path consists of the following:
+	'load' operation ('CalaPoint_0_load', Sobel_SkLines/src/SeekPoint.cpp:46) on array 'CalaPoint[0]', Sobel_SkLines/src/SeekPoint.cpp:37 [134]  (0.677 ns)
+	'sub' operation ('tmp_25', Sobel_SkLines/src/SeekPoint.cpp:46) [136]  (1.02 ns)
+
+ <State 17>: 7.89ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_28', Sobel_SkLines/src/SeekPoint.cpp:46) [137]  (7.89 ns)
+
+ <State 18>: 7.89ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_28', Sobel_SkLines/src/SeekPoint.cpp:46) [137]  (7.89 ns)
+
+ <State 19>: 7.89ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_28', Sobel_SkLines/src/SeekPoint.cpp:46) [137]  (7.89 ns)
+
+ <State 20>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_31', Sobel_SkLines/src/SeekPoint.cpp:46) [142]  (8.27 ns)
+
+ <State 21>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_31', Sobel_SkLines/src/SeekPoint.cpp:46) [142]  (8.27 ns)
+
+ <State 22>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_31', Sobel_SkLines/src/SeekPoint.cpp:46) [142]  (8.27 ns)
+
+ <State 23>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_31', Sobel_SkLines/src/SeekPoint.cpp:46) [142]  (8.27 ns)
+
+ <State 24>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_31', Sobel_SkLines/src/SeekPoint.cpp:46) [142]  (8.27 ns)
+
+ <State 25>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_31', Sobel_SkLines/src/SeekPoint.cpp:46) [142]  (8.27 ns)
+
+ <State 26>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_31', Sobel_SkLines/src/SeekPoint.cpp:46) [142]  (8.27 ns)
+
+ <State 27>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('tmp_31', Sobel_SkLines/src/SeekPoint.cpp:46) [142]  (8.27 ns)
+
+ <State 28>: 8.42ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_34', Sobel_SkLines/src/SeekPoint.cpp:47) [146]  (8.42 ns)
+
+ <State 29>: 8.42ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_34', Sobel_SkLines/src/SeekPoint.cpp:47) [146]  (8.42 ns)
+
+ <State 30>: 6.44ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_35', Sobel_SkLines/src/SeekPoint.cpp:47) [147]  (6.44 ns)
+
+ <State 31>: 6.44ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_35', Sobel_SkLines/src/SeekPoint.cpp:47) [147]  (6.44 ns)
+
+ <State 32>: 6.44ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_35', Sobel_SkLines/src/SeekPoint.cpp:47) [147]  (6.44 ns)
+
+ <State 33>: 7.67ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_35', Sobel_SkLines/src/SeekPoint.cpp:47) [147]  (6.44 ns)
+	'store' operation (Sobel_SkLines/src/SeekPoint.cpp:47) of variable 'tmp_35', Sobel_SkLines/src/SeekPoint.cpp:47 on array 'B' [148]  (1.24 ns)
+
+ <State 34>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', Sobel_SkLines/src/SeekPoint.cpp:50) [155]  (0 ns)
+	'getelementptr' operation ('WtPoitColLoc_addr_1', Sobel_SkLines/src/SeekPoint.cpp:53) [161]  (0 ns)
+	'load' operation ('WtPoitColLoc_load_1', Sobel_SkLines/src/SeekPoint.cpp:53) on array 'WtPoitColLoc', Sobel_SkLines/src/SeekPoint.cpp:11 [162]  (1.24 ns)
+
+ <State 35>: 1.24ns
+The critical path consists of the following:
+	'load' operation ('K_load', Sobel_SkLines/src/SeekPoint.cpp:53) on array 'K' [159]  (1.24 ns)
+
+ <State 36>: 8.42ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_46', Sobel_SkLines/src/SeekPoint.cpp:53) [175]  (8.42 ns)
+
+ <State 37>: 8.42ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_46', Sobel_SkLines/src/SeekPoint.cpp:53) [175]  (8.42 ns)
+
+ <State 38>: 7.89ns
+The critical path consists of the following:
+	'sitofp' operation ('tmp_42', Sobel_SkLines/src/SeekPoint.cpp:53) [163]  (7.89 ns)
+
+ <State 39>: 8.42ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_43', Sobel_SkLines/src/SeekPoint.cpp:53) [164]  (8.42 ns)
+
+ <State 40>: 8.42ns
+The critical path consists of the following:
+	'fmul' operation ('tmp_43', Sobel_SkLines/src/SeekPoint.cpp:53) [164]  (8.42 ns)
+
+ <State 41>: 6.44ns
+The critical path consists of the following:
+	'fsub' operation ('tmp_45', Sobel_SkLines/src/SeekPoint.cpp:53) [168]  (6.44 ns)
+
+ <State 42>: 8.41ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_i', r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53) [177]  (8.41 ns)
+
+ <State 43>: 8.41ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_i', r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53) [177]  (8.41 ns)
+
+ <State 44>: 8.41ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_i', r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53) [177]  (8.41 ns)
+
+ <State 45>: 8.41ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_i', r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53) [177]  (8.41 ns)
+
+ <State 46>: 8.41ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_i', r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53) [177]  (8.41 ns)
+
+ <State 47>: 8.41ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_i', r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53) [177]  (8.41 ns)
+
+ <State 48>: 8.41ns
+The critical path consists of the following:
+	'fsqrt' operation ('tmp_i', r:/builds/2018.3/continuous/2018_12_06_2405991/src/products/hls/hls_lib/hlsmath/src/c++/sqrtfloat.cpp:6->Sobel_SkLines/src/SeekPoint.cpp:53) [177]  (8.41 ns)
+
+ <State 49>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('d', Sobel_SkLines/src/SeekPoint.cpp:53) [178]  (8.27 ns)
+
+ <State 50>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('d', Sobel_SkLines/src/SeekPoint.cpp:53) [178]  (8.27 ns)
+
+ <State 51>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('d', Sobel_SkLines/src/SeekPoint.cpp:53) [178]  (8.27 ns)
+
+ <State 52>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('d', Sobel_SkLines/src/SeekPoint.cpp:53) [178]  (8.27 ns)
+
+ <State 53>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('d', Sobel_SkLines/src/SeekPoint.cpp:53) [178]  (8.27 ns)
+
+ <State 54>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('d', Sobel_SkLines/src/SeekPoint.cpp:53) [178]  (8.27 ns)
+
+ <State 55>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('d', Sobel_SkLines/src/SeekPoint.cpp:53) [178]  (8.27 ns)
+
+ <State 56>: 8.27ns
+The critical path consists of the following:
+	'fdiv' operation ('d', Sobel_SkLines/src/SeekPoint.cpp:53) [178]  (8.27 ns)
+
+ <State 57>: 4.42ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_49', Sobel_SkLines/src/SeekPoint.cpp:54) [185]  (3.48 ns)
+	'and' operation ('tmp_50', Sobel_SkLines/src/SeekPoint.cpp:54) [186]  (0.287 ns)
+	multiplexor before 'phi' operation ('WtPoitRowLoc_lenth') with incoming values : ('templong', Sobel_SkLines/src/SeekPoint.cpp:19) ('WtPoitRowLoc_lenth', Sobel_SkLines/src/SeekPoint.cpp:56) [203]  (0.656 ns)
+
+ <State 58>: 3.49ns
+The critical path consists of the following:
+	'load' operation ('NumPoint_load', Sobel_SkLines/src/SeekPoint.cpp:60) on array 'NumPoint' [196]  (1.24 ns)
+	'add' operation ('tmp_51', Sobel_SkLines/src/SeekPoint.cpp:60) [197]  (1.02 ns)
+	'store' operation (Sobel_SkLines/src/SeekPoint.cpp:60) of variable 'tmp_51', Sobel_SkLines/src/SeekPoint.cpp:60 on array 'NumPoint' [198]  (1.24 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

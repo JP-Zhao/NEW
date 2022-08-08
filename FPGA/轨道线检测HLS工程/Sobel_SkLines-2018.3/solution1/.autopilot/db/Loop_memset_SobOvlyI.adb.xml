@@ -1,0 +1,244 @@
+<stg><name>Loop_memset_SobOvlyI</name>
+
+
+<trans_list>
+
+<trans id="13" from="1" to="2">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="14" from="2" to="2">
+<condition id="-1">
+<or_exp><and_exp><literal name="invdar_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+</trans>
+</trans_list>
+
+
+
+<state_list>
+
+<state id="1" st_id="1">
+
+<operation id="3" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="2" bw="0" op_0_bw="0">
+<![CDATA[
+newFuncRoot:0  br label %meminst.i
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+
+<state id="2" st_id="2">
+
+<operation id="4" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="4" bw="1" op_0_bw="1" op_1_bw="0">
+<![CDATA[
+meminst.i:0  %invdar_i = phi i1 [ false, %newFuncRoot ], [ %indvarinc_i, %meminst.i ]
+
+]]></Node>
+<StgValue><ssdm name="invdar_i"/></StgValue>
+</operation>
+
+<operation id="5" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="5" bw="64" op_0_bw="1">
+<![CDATA[
+meminst.i:1  %tmp_i = zext i1 %invdar_i to i64
+
+]]></Node>
+<StgValue><ssdm name="tmp_i"/></StgValue>
+</operation>
+
+<operation id="6" st_id="2" stage="1" lat="1">
+<core>LogicGate</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="6" bw="1" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+meminst.i:2  %indvarinc_i = xor i1 %invdar_i, true
+
+]]></Node>
+<StgValue><ssdm name="indvarinc_i"/></StgValue>
+</operation>
+
+<operation id="7" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="7" bw="1" op_0_bw="1" op_1_bw="64" op_2_bw="64">
+<![CDATA[
+meminst.i:3  %SobOvlyIma_Strt_addr = getelementptr [2 x i1]* %SobOvlyIma_Strt, i64 0, i64 %tmp_i
+
+]]></Node>
+<StgValue><ssdm name="SobOvlyIma_Strt_addr"/></StgValue>
+</operation>
+
+<operation id="8" st_id="2" stage="1" lat="1">
+<core>RAM</core>
+<MemPortIdVec>0 </MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="8" bw="0" op_0_bw="1" op_1_bw="1">
+<![CDATA[
+meminst.i:4  store i1 false, i1* %SobOvlyIma_Strt_addr, align 1
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="9" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="9" bw="0" op_0_bw="0" op_1_bw="0">
+<![CDATA[
+meminst.i:5  call void (...)* @_ssdm_op_SpecLoopName([23 x i8]* @memset_SobOvlyIma_St)
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="10" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="10" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<![CDATA[
+meminst.i:6  call void (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="11" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="11" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<![CDATA[
+meminst.i:7  br i1 %invdar_i, label %TOP_fuct_meminst.exit.exitStub, label %meminst.i
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+
+<operation id="12" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="invdar_i" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="13" bw="0">
+<![CDATA[
+TOP_fuct_meminst.exit.exitStub:0  ret void
+
+]]></Node>
+<StgValue><ssdm name=""/></StgValue>
+</operation>
+</state>
+</state_list>
+
+
+<ports>
+<port id="15" name="SobOvlyIma_Strt" dir="1" iftype="1">
+<core>RAM</core><StgValue><ssdm name="SobOvlyIma_Strt"/><MemPortTyVec>0 3 </MemPortTyVec>
+</StgValue>
+</port>
+</ports>
+
+
+<dataflows>
+<dataflow id="17" from="StgValue_16" to="invdar_i" fromId="16" toId="4">
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="18" from="StgValue_3" to="invdar_i" fromId="3" toId="4">
+</dataflow>
+<dataflow id="19" from="indvarinc_i" to="invdar_i" fromId="6" toId="4">
+<BackEdge/>
+<condition id="-1">
+<or_exp><and_exp><literal name="invdar_i" val="0"/>
+</and_exp></or_exp>
+</condition>
+</dataflow>
+<dataflow id="20" from="StgValue_11" to="invdar_i" fromId="11" toId="4">
+<BackEdge/>
+</dataflow>
+<dataflow id="21" from="invdar_i" to="tmp_i" fromId="4" toId="5">
+</dataflow>
+<dataflow id="22" from="invdar_i" to="indvarinc_i" fromId="4" toId="6">
+</dataflow>
+<dataflow id="24" from="StgValue_23" to="indvarinc_i" fromId="23" toId="6">
+</dataflow>
+<dataflow id="25" from="SobOvlyIma_Strt" to="SobOvlyIma_Strt_addr" fromId="15" toId="7">
+</dataflow>
+<dataflow id="27" from="StgValue_26" to="SobOvlyIma_Strt_addr" fromId="26" toId="7">
+</dataflow>
+<dataflow id="28" from="tmp_i" to="SobOvlyIma_Strt_addr" fromId="5" toId="7">
+</dataflow>
+<dataflow id="29" from="StgValue_16" to="StgValue_8" fromId="16" toId="8">
+</dataflow>
+<dataflow id="30" from="SobOvlyIma_Strt_addr" to="StgValue_8" fromId="7" toId="8">
+</dataflow>
+<dataflow id="32" from="_ssdm_op_SpecLoopName" to="StgValue_9" fromId="31" toId="9">
+</dataflow>
+<dataflow id="34" from="memset_SobOvlyIma_St" to="StgValue_9" fromId="33" toId="9">
+</dataflow>
+<dataflow id="36" from="_ssdm_op_SpecLoopTripCount" to="StgValue_10" fromId="35" toId="10">
+</dataflow>
+<dataflow id="38" from="StgValue_37" to="StgValue_10" fromId="37" toId="10">
+</dataflow>
+<dataflow id="39" from="StgValue_37" to="StgValue_10" fromId="37" toId="10">
+</dataflow>
+<dataflow id="40" from="StgValue_37" to="StgValue_10" fromId="37" toId="10">
+</dataflow>
+<dataflow id="41" from="invdar_i" to="StgValue_11" fromId="4" toId="11">
+</dataflow>
+<dataflow id="42" from="invdar_i" to="StgValue_2" fromId="4" toId="2">
+</dataflow>
+</dataflows>
+
+
+</stg>

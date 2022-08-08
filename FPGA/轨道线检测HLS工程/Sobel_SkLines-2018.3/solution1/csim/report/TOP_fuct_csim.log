@@ -1,0 +1,14 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../src/TOP_fuct_tb.cpp in debug mode
+   Compiling ../../../src/filtrel_kernelXS.cpp in debug mode
+   Compiling ../../../src/filtrel_kernel.cpp in debug mode
+   Compiling ../../../src/TOP_fuct.cpp in debug mode
+   Compiling ../../../src/SeekPoint.cpp in debug mode
+   Compiling ../../../src/SeekLines.cpp in debug mode
+   Compiling ../../../src/PlotLines.cpp in debug mode
+   Compiling ../../../src/OvlayImage.cpp in debug mode
+   Compiling ../../../src/CopImage.cpp in debug mode
+   Generating csim.exe
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

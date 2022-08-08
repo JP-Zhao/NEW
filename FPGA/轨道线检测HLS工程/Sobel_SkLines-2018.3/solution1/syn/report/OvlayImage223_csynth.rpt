@@ -1,0 +1,178 @@
+
+
+================================================================
+== Vivado HLS Report for 'OvlayImage223'
+================================================================
+* Date:           Sat Jun  4 16:23:46 2022
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        Sobel_SkLines
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     3.676|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+---------+
+    |     Latency     |     Interval    | Pipeline|
+    |   min  |   max  |   min  |   max  |   Type  |
+    +--------+--------+--------+--------+---------+
+    |  104761|  104761|  104761|  104761|   none  |
+    +--------+--------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+--------+--------+----------+-----------+-----------+------+----------+
+        |             |     Latency     | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min  |   max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+--------+--------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |  104760|  104760|       582|          -|          -|   180|    no    |
+        | + Loop 1.1  |     580|     580|         2|          -|          -|   290|    no    |
+        +-------------+--------+--------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     132|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|     105|    -|
+|Register         |        -|      -|      40|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|      40|     237|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |          Variable Name         | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |i_8_fu_142_p2                   |     +    |      0|  0|  15|           8|           1|
+    |j_5_fu_154_p2                   |     +    |      0|  0|  16|           9|           1|
+    |ap_predicate_op59_write_state4  |    and   |      0|  0|   2|           1|           1|
+    |ap_predicate_op62_write_state4  |    and   |      0|  0|   2|           1|           1|
+    |tmp1_fu_220_p2                  |    and   |      0|  0|   2|           1|           1|
+    |tmp2_fu_226_p2                  |    and   |      0|  0|   2|           1|           1|
+    |tmp_60_fu_232_p2                |    and   |      0|  0|   2|           1|           1|
+    |exitcond2_fu_136_p2             |   icmp   |      0|  0|  11|           8|           8|
+    |exitcond_fu_148_p2              |   icmp   |      0|  0|  13|           9|           9|
+    |tmp_57_fu_184_p2                |   icmp   |      0|  0|  11|           8|           8|
+    |tmp_59_fu_214_p2                |   icmp   |      0|  0|  13|           9|           9|
+    |tmp_61_fu_238_p2                |   icmp   |      0|  0|  11|           8|           1|
+    |ult2_fu_194_p2                  |   icmp   |      0|  0|  13|           9|           9|
+    |ult_fu_164_p2                   |   icmp   |      0|  0|  11|           8|           8|
+    |ap_block_state1                 |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state4                 |    or    |      0|  0|   2|           1|           1|
+    |rev2_fu_200_p2                  |    xor   |      0|  0|   2|           1|           2|
+    |rev_fu_170_p2                   |    xor   |      0|  0|   2|           1|           2|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |Total                           |          |      0|  0| 132|          85|          65|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------+----+-----------+-----+-----------+
+    |             Name             | LUT| Input Size| Bits| Total Bits|
+    +------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                     |  27|          5|    1|          5|
+    |ap_done                       |   9|          2|    1|          2|
+    |dst_data_stream_V_blk_n       |   9|          2|    1|          2|
+    |dst_data_stream_V_din         |  15|          3|    8|         24|
+    |i_reg_112                     |   9|          2|    8|         16|
+    |j_reg_124                     |   9|          2|    9|         18|
+    |ovlaysrc_data_stream_V_blk_n  |   9|          2|    1|          2|
+    |real_start                    |   9|          2|    1|          2|
+    |src_data_stream_V_blk_n       |   9|          2|    1|          2|
+    +------------------------------+----+-----------+-----+-----------+
+    |Total                         | 105|         22|   31|         73|
+    +------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------+---+----+-----+-----------+
+    |      Name      | FF| LUT| Bits| Const Bits|
+    +----------------+---+----+-----+-----------+
+    |ap_CS_fsm       |  4|   0|    4|          0|
+    |ap_done_reg     |  1|   0|    1|          0|
+    |i_8_reg_257     |  8|   0|    8|          0|
+    |i_reg_112       |  8|   0|    8|          0|
+    |j_5_reg_265     |  9|   0|    9|          0|
+    |j_reg_124       |  9|   0|    9|          0|
+    |start_once_reg  |  1|   0|    1|          0|
+    +----------------+---+----+-----+-----------+
+    |Total           | 40|   0|   40|          0|
+    +----------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------------+-----+-----+------------+------------------------+--------------+
+|            RTL Ports           | Dir | Bits|  Protocol  |      Source Object     |    C Type    |
++--------------------------------+-----+-----+------------+------------------------+--------------+
+|ap_clk                          |  in |    1| ap_ctrl_hs |      OvlayImage223     | return value |
+|ap_rst                          |  in |    1| ap_ctrl_hs |      OvlayImage223     | return value |
+|ap_start                        |  in |    1| ap_ctrl_hs |      OvlayImage223     | return value |
+|start_full_n                    |  in |    1| ap_ctrl_hs |      OvlayImage223     | return value |
+|ap_done                         | out |    1| ap_ctrl_hs |      OvlayImage223     | return value |
+|ap_continue                     |  in |    1| ap_ctrl_hs |      OvlayImage223     | return value |
+|ap_idle                         | out |    1| ap_ctrl_hs |      OvlayImage223     | return value |
+|ap_ready                        | out |    1| ap_ctrl_hs |      OvlayImage223     | return value |
+|start_out                       | out |    1| ap_ctrl_hs |      OvlayImage223     | return value |
+|start_write                     | out |    1| ap_ctrl_hs |      OvlayImage223     | return value |
+|src_data_stream_V_dout          |  in |    8|   ap_fifo  |    src_data_stream_V   |    pointer   |
+|src_data_stream_V_empty_n       |  in |    1|   ap_fifo  |    src_data_stream_V   |    pointer   |
+|src_data_stream_V_read          | out |    1|   ap_fifo  |    src_data_stream_V   |    pointer   |
+|ovlaysrc_data_stream_V_dout     |  in |    8|   ap_fifo  | ovlaysrc_data_stream_V |    pointer   |
+|ovlaysrc_data_stream_V_empty_n  |  in |    1|   ap_fifo  | ovlaysrc_data_stream_V |    pointer   |
+|ovlaysrc_data_stream_V_read     | out |    1|   ap_fifo  | ovlaysrc_data_stream_V |    pointer   |
+|dst_data_stream_V_din           | out |    8|   ap_fifo  |    dst_data_stream_V   |    pointer   |
+|dst_data_stream_V_full_n        |  in |    1|   ap_fifo  |    dst_data_stream_V   |    pointer   |
+|dst_data_stream_V_write         | out |    1|   ap_fifo  |    dst_data_stream_V   |    pointer   |
+|StartLoc_address0               | out |    1|  ap_memory |        StartLoc        |     array    |
+|StartLoc_ce0                    | out |    1|  ap_memory |        StartLoc        |     array    |
+|StartLoc_q0                     |  in |    1|  ap_memory |        StartLoc        |     array    |
+|StartLoc_address1               | out |    1|  ap_memory |        StartLoc        |     array    |
+|StartLoc_ce1                    | out |    1|  ap_memory |        StartLoc        |     array    |
+|StartLoc_q1                     |  in |    1|  ap_memory |        StartLoc        |     array    |
++--------------------------------+-----+-----+------------+------------------------+--------------+
+

@@ -1,0 +1,66 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'TOP_fuct'" level="0">
+<item name = "Date">Sat Jun  4 16:23:38 2022
+</item>
+<item name = "Version">2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)</item>
+<item name = "Project">Sobel_SkLines</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu9eg-ffvb1156-2-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 8.419, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_SeekPoint_fu_396">SeekPoint, ?, ?, ?, ?, none</column>
+<column name="grp_Sobel_fu_406">Sobel, 53874, 53874, 53874, 53874, none</column>
+<column name="grp_Sobel_1_fu_412">Sobel_1, 53874, 53874, 53874, 53874, none</column>
+<column name="grp_filtrel_kernelXS_fu_418">filtrel_kernelXS, ?, ?, ?, ?, none</column>
+<column name="grp_filtrel_kernel_fu_424">filtrel_kernel, ?, ?, ?, ?, none</column>
+<column name="grp_AXIvideo2Mat_fu_430">AXIvideo2Mat, 3, 1028003, 3, 1028003, none</column>
+<column name="grp_CopImage220_fu_455">CopImage220, ?, ?, ?, ?, none</column>
+<column name="grp_CvtColor_fu_463">CvtColor, 1, 1027201, 1, 1027201, none</column>
+<column name="grp_Threshold222_fu_473">Threshold222, 1, 1026401, 1, 1026401, none</column>
+<column name="grp_Threshold_fu_481">Threshold, 1, 1026401, 1, 1026401, none</column>
+<column name="grp_Duplicate221_fu_489">Duplicate221, 1, 1026401, 1, 1026401, none</column>
+<column name="grp_Duplicate_fu_498">Duplicate, 1, 1026401, 1, 1026401, none</column>
+<column name="grp_Duplicate219_fu_507">Duplicate219, 1, 1026401, 1, 1026401, none</column>
+<column name="grp_OvlayImage223_fu_516">OvlayImage223, 104761, 104761, 104761, 104761, none</column>
+<column name="grp_OvlayImage225_fu_524">OvlayImage225, 104761, 104761, 104761, 104761, none</column>
+<column name="grp_CopImage224_fu_532">CopImage224, 52561, 52561, 52561, 52561, none</column>
+<column name="StgValue_81_Block_TOP_fuct_memin_fu_538">Block_TOP_fuct_memin, 0, 0, 0, 0, none</column>
+<column name="grp_Loop_memset_SobOvlyI_fu_558">Loop_memset_SobOvlyI, 2, 2, 2, 2, none</column>
+<column name="grp_Loop_memset_XsOvImSt_fu_563">Loop_memset_XsOvImSt, 2, 2, 2, 2, none</column>
+<column name="StgValue_79_TOP_fuct_entry3_fu_568">TOP_fuct_entry3, 0, 0, 0, 0, none</column>
+<column name="StgValue_80_TOP_fuct_entry226_fu_578">TOP_fuct_entry226, 0, 0, 0, 0, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

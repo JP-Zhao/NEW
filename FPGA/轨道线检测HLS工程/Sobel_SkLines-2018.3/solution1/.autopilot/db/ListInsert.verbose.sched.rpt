@@ -1,0 +1,165 @@
+
+
+================================================================
+== Vivado HLS Report for 'ListInsert'
+================================================================
+* Date:           Sat Jun  4 16:23:34 2022
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        Sobel_SkLines
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     2.474|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!tmp & !tmp_62 & tmp_63 & !tmp_65)
+3 --> 
+	2  / true
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%length_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %length_r)"   --->   Operation 4 'read' 'length_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%e_read = call i9 @_ssdm_op_Read.ap_auto.i9(i9 %e)"   --->   Operation 5 'read' 'e_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%i_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %i)"   --->   Operation 6 'read' 'i_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%e_cast = zext i9 %e_read to i32"   --->   Operation 7 'zext' 'e_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.99ns)   --->   "%tmp = icmp slt i32 %i_read, 1" [Sobel_SkLines/src/SeekPoint.cpp:92]   --->   Operation 8 'icmp' 'tmp' <Predicate = true> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "br i1 %tmp, label %._crit_edge, label %1" [Sobel_SkLines/src/SeekPoint.cpp:92]   --->   Operation 9 'br' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (1.01ns)   --->   "%tmp_s = add nsw i32 %length_read, 1" [Sobel_SkLines/src/SeekPoint.cpp:92]   --->   Operation 10 'add' 'tmp_s' <Predicate = (!tmp)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 11 [1/1] (0.99ns)   --->   "%tmp_62 = icmp slt i32 %tmp_s, %i_read" [Sobel_SkLines/src/SeekPoint.cpp:92]   --->   Operation 11 'icmp' 'tmp_62' <Predicate = (!tmp)> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "br i1 %tmp_62, label %._crit_edge, label %2" [Sobel_SkLines/src/SeekPoint.cpp:92]   --->   Operation 12 'br' <Predicate = (!tmp)> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.99ns)   --->   "%tmp_63 = icmp slt i32 %length_read, 5000" [Sobel_SkLines/src/SeekPoint.cpp:94]   --->   Operation 13 'icmp' 'tmp_63' <Predicate = (!tmp & !tmp_62)> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "br i1 %tmp_63, label %.preheader.preheader, label %._crit_edge2" [Sobel_SkLines/src/SeekPoint.cpp:94]   --->   Operation 14 'br' <Predicate = (!tmp & !tmp_62)> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%tmp_64 = zext i32 %i_read to i64" [Sobel_SkLines/src/SeekPoint.cpp:97]   --->   Operation 15 'zext' 'tmp_64' <Predicate = (!tmp & !tmp_62 & tmp_63)> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%Data_addr = getelementptr [5000 x i32]* %Data, i64 0, i64 %tmp_64" [Sobel_SkLines/src/SeekPoint.cpp:97]   --->   Operation 16 'getelementptr' 'Data_addr' <Predicate = (!tmp & !tmp_62 & tmp_63)> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.65ns)   --->   "br label %.preheader" [Sobel_SkLines/src/SeekPoint.cpp:96]   --->   Operation 17 'br' <Predicate = (!tmp & !tmp_62 & tmp_63)> <Delay = 0.65>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "br label %._crit_edge2" [Sobel_SkLines/src/SeekPoint.cpp:92]   --->   Operation 18 'br' <Predicate = (tmp_62) | (tmp)> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 2.25>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%j = phi i32 [ %j_6, %3 ], [ %length_read, %.preheader.preheader ]"   --->   Operation 19 'phi' 'j' <Predicate = (!tmp & !tmp_62 & tmp_63)> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.99ns)   --->   "%tmp_65 = icmp slt i32 %j, %i_read" [Sobel_SkLines/src/SeekPoint.cpp:96]   --->   Operation 20 'icmp' 'tmp_65' <Predicate = (!tmp & !tmp_62 & tmp_63)> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "br i1 %tmp_65, label %4, label %3" [Sobel_SkLines/src/SeekPoint.cpp:96]   --->   Operation 21 'br' <Predicate = (!tmp & !tmp_62 & tmp_63)> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (1.01ns)   --->   "%j_6 = add nsw i32 %j, -1" [Sobel_SkLines/src/SeekPoint.cpp:97]   --->   Operation 22 'add' 'j_6' <Predicate = (!tmp & !tmp_62 & tmp_63 & !tmp_65)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%tmp_68 = zext i32 %j_6 to i64" [Sobel_SkLines/src/SeekPoint.cpp:97]   --->   Operation 23 'zext' 'tmp_68' <Predicate = (!tmp & !tmp_62 & tmp_63 & !tmp_65)> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%Data_addr_2 = getelementptr [5000 x i32]* %Data, i64 0, i64 %tmp_68" [Sobel_SkLines/src/SeekPoint.cpp:97]   --->   Operation 24 'getelementptr' 'Data_addr_2' <Predicate = (!tmp & !tmp_62 & tmp_63 & !tmp_65)> <Delay = 0.00>
+ST_2 : Operation 25 [2/2] (1.23ns)   --->   "%Data_load = load i32* %Data_addr_2, align 4" [Sobel_SkLines/src/SeekPoint.cpp:97]   --->   Operation 25 'load' 'Data_load' <Predicate = (!tmp & !tmp_62 & tmp_63 & !tmp_65)> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+ST_2 : Operation 26 [1/1] (1.01ns)   --->   "%tmp_66 = add nsw i32 %i_read, -1" [Sobel_SkLines/src/SeekPoint.cpp:99]   --->   Operation 26 'add' 'tmp_66' <Predicate = (!tmp & !tmp_62 & tmp_63 & tmp_65)> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "%tmp_67 = zext i32 %tmp_66 to i64" [Sobel_SkLines/src/SeekPoint.cpp:99]   --->   Operation 27 'zext' 'tmp_67' <Predicate = (!tmp & !tmp_62 & tmp_63 & tmp_65)> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (0.00ns)   --->   "%Data_addr_1 = getelementptr [5000 x i32]* %Data, i64 0, i64 %tmp_67" [Sobel_SkLines/src/SeekPoint.cpp:99]   --->   Operation 28 'getelementptr' 'Data_addr_1' <Predicate = (!tmp & !tmp_62 & tmp_63 & tmp_65)> <Delay = 0.00>
+ST_2 : Operation 29 [1/1] (1.23ns)   --->   "store i32 %e_cast, i32* %Data_addr_1, align 4" [Sobel_SkLines/src/SeekPoint.cpp:99]   --->   Operation 29 'store' <Predicate = (!tmp & !tmp_62 & tmp_63 & tmp_65)> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "br label %._crit_edge2" [Sobel_SkLines/src/SeekPoint.cpp:101]   --->   Operation 30 'br' <Predicate = (!tmp & !tmp_62 & tmp_63 & tmp_65)> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 31 'ret' <Predicate = (tmp_65) | (!tmp_63) | (tmp_62) | (tmp)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 2.47>
+ST_3 : Operation 32 [1/2] (1.23ns)   --->   "%Data_load = load i32* %Data_addr_2, align 4" [Sobel_SkLines/src/SeekPoint.cpp:97]   --->   Operation 32 'load' 'Data_load' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+ST_3 : Operation 33 [1/1] (1.23ns)   --->   "store i32 %Data_load, i32* %Data_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:97]   --->   Operation 33 'store' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "br label %.preheader" [Sobel_SkLines/src/SeekPoint.cpp:96]   --->   Operation 34 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 2.01ns
+The critical path consists of the following:
+	wire read on port 'length_r' [5]  (0 ns)
+	'add' operation ('tmp_s', Sobel_SkLines/src/SeekPoint.cpp:92) [12]  (1.02 ns)
+	'icmp' operation ('tmp_62', Sobel_SkLines/src/SeekPoint.cpp:92) [13]  (0.991 ns)
+
+ <State 2>: 2.25ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('length') ('j', Sobel_SkLines/src/SeekPoint.cpp:97) [23]  (0 ns)
+	'add' operation ('j', Sobel_SkLines/src/SeekPoint.cpp:97) [27]  (1.02 ns)
+	'getelementptr' operation ('Data_addr_2', Sobel_SkLines/src/SeekPoint.cpp:97) [29]  (0 ns)
+	'load' operation ('Data_load', Sobel_SkLines/src/SeekPoint.cpp:97) on array 'Data' [30]  (1.24 ns)
+
+ <State 3>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('Data_load', Sobel_SkLines/src/SeekPoint.cpp:97) on array 'Data' [30]  (1.24 ns)
+	'store' operation (Sobel_SkLines/src/SeekPoint.cpp:97) of variable 'Data_load', Sobel_SkLines/src/SeekPoint.cpp:97 on array 'Data' [31]  (1.24 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

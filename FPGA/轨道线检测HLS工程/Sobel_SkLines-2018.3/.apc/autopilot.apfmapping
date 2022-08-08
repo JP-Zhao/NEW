@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="filtrel_kernelXS.h" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\filtrel_kernelXS.h"/>
+    <originFiles name="filtrel_kernelXS.cpp" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\filtrel_kernelXS.cpp"/>
+    <originFiles name="filtrel_kernel.h" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\filtrel_kernel.h"/>
+    <originFiles name="filtrel_kernel.cpp" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\filtrel_kernel.cpp"/>
+    <originFiles name="TOP_fuct.h" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\TOP_fuct.h"/>
+    <originFiles name="TOP_fuct.cpp" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\TOP_fuct.cpp"/>
+    <originFiles name="SeekPoint.h" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\SeekPoint.h"/>
+    <originFiles name="SeekPoint.cpp" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\SeekPoint.cpp"/>
+    <originFiles name="SeekLines.h" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\SeekLines.h"/>
+    <originFiles name="SeekLines.cpp" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\SeekLines.cpp"/>
+    <originFiles name="PlotLines.h" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\PlotLines.h"/>
+    <originFiles name="PlotLines.cpp" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\PlotLines.cpp"/>
+    <originFiles name="OvlayImage.h" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\OvlayImage.h"/>
+    <originFiles name="OvlayImage.cpp" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\OvlayImage.cpp"/>
+    <originFiles name="CopImage.h" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\CopImage.h"/>
+    <originFiles name="CopImage.cpp" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\CopImage.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="TOP_fuct_tb.cpp" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\TOP_fuct_tb.cpp"/>
+    <originFiles name="0110_35.jpg" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\0110_35.jpg"/>
+    <originFiles name="0110_32.jpg" path="C:\Users\11589\Desktop\ZYNQ7020\Sobel_SkLines\src\0110_32.jpg"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

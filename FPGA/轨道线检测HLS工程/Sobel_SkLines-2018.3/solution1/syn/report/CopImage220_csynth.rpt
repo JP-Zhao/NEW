@@ -1,0 +1,168 @@
+
+
+================================================================
+== Vivado HLS Report for 'CopImage220'
+================================================================
+* Date:           Sat Jun  4 16:23:41 2022
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        Sobel_SkLines
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     3.676|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |    ?|    ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 1.1  |    ?|    ?|         1|          -|          -|     ?|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     208|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|      84|    -|
+|Register         |        -|      -|     162|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|     162|     292|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     1824|   2520|  548160|  274080|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |          Variable Name         | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |i_fu_105_p2                     |     +    |      0|  0|  38|          31|           1|
+    |j_fu_138_p2                     |     +    |      0|  0|  38|          31|           1|
+    |ap_predicate_op37_write_state3  |    and   |      0|  0|   2|           1|           1|
+    |tmp1_fu_123_p2                  |    and   |      0|  0|   2|           1|           1|
+    |tmp2_fu_156_p2                  |    and   |      0|  0|   2|           1|           1|
+    |tmp_121_i_fu_162_p2             |    and   |      0|  0|   2|           1|           1|
+    |tmp_115_i_fu_111_p2             |   icmp   |      0|  0|  20|          31|           8|
+    |tmp_116_i_fu_117_p2             |   icmp   |      0|  0|  20|          31|           9|
+    |tmp_118_i_fu_144_p2             |   icmp   |      0|  0|  20|          31|           1|
+    |tmp_119_i_fu_150_p2             |   icmp   |      0|  0|  20|          31|           9|
+    |tmp_i_160_fu_133_p2             |   icmp   |      0|  0|  20|          32|          32|
+    |tmp_i_fu_100_p2                 |   icmp   |      0|  0|  20|          32|          32|
+    |ap_block_state1                 |    or    |      0|  0|   2|           1|           1|
+    |ap_block_state3                 |    or    |      0|  0|   2|           1|           1|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |Total                           |          |      0|  0| 208|         256|          99|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |HEIGHT_blk_n             |   9|          2|    1|          2|
+    |WIDTH_blk_n              |   9|          2|    1|          2|
+    |ap_NS_fsm                |  21|          4|    1|          4|
+    |ap_done                  |   9|          2|    1|          2|
+    |dst_data_stream_V_blk_n  |   9|          2|    1|          2|
+    |i_i_reg_74               |   9|          2|   31|         62|
+    |j_i_reg_85               |   9|          2|   31|         62|
+    |src_data_stream_V_blk_n  |   9|          2|    1|          2|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  84|         18|   68|        138|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------+----+----+-----+-----------+
+    |         Name        | FF | LUT| Bits| Const Bits|
+    +---------------------+----+----+-----+-----------+
+    |HEIGHT_read_reg_167  |  32|   0|   32|          0|
+    |WIDTH_read_reg_172   |  32|   0|   32|          0|
+    |ap_CS_fsm            |   3|   0|    3|          0|
+    |ap_done_reg          |   1|   0|    1|          0|
+    |i_i_reg_74           |  31|   0|   31|          0|
+    |i_reg_180            |  31|   0|   31|          0|
+    |j_i_reg_85           |  31|   0|   31|          0|
+    |tmp1_reg_185         |   1|   0|    1|          0|
+    +---------------------+----+----+-----+-----------+
+    |Total                | 162|   0|  162|          0|
+    +---------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+-------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |   Source Object   |    C Type    |
++---------------------------+-----+-----+------------+-------------------+--------------+
+|ap_clk                     |  in |    1| ap_ctrl_hs |    CopImage220    | return value |
+|ap_rst                     |  in |    1| ap_ctrl_hs |    CopImage220    | return value |
+|ap_start                   |  in |    1| ap_ctrl_hs |    CopImage220    | return value |
+|ap_done                    | out |    1| ap_ctrl_hs |    CopImage220    | return value |
+|ap_continue                |  in |    1| ap_ctrl_hs |    CopImage220    | return value |
+|ap_idle                    | out |    1| ap_ctrl_hs |    CopImage220    | return value |
+|ap_ready                   | out |    1| ap_ctrl_hs |    CopImage220    | return value |
+|src_data_stream_V_dout     |  in |    8|   ap_fifo  | src_data_stream_V |    pointer   |
+|src_data_stream_V_empty_n  |  in |    1|   ap_fifo  | src_data_stream_V |    pointer   |
+|src_data_stream_V_read     | out |    1|   ap_fifo  | src_data_stream_V |    pointer   |
+|dst_data_stream_V_din      | out |    8|   ap_fifo  | dst_data_stream_V |    pointer   |
+|dst_data_stream_V_full_n   |  in |    1|   ap_fifo  | dst_data_stream_V |    pointer   |
+|dst_data_stream_V_write    | out |    1|   ap_fifo  | dst_data_stream_V |    pointer   |
+|HEIGHT_dout                |  in |   32|   ap_fifo  |       HEIGHT      |    pointer   |
+|HEIGHT_empty_n             |  in |    1|   ap_fifo  |       HEIGHT      |    pointer   |
+|HEIGHT_read                | out |    1|   ap_fifo  |       HEIGHT      |    pointer   |
+|WIDTH_dout                 |  in |   32|   ap_fifo  |       WIDTH       |    pointer   |
+|WIDTH_empty_n              |  in |    1|   ap_fifo  |       WIDTH       |    pointer   |
+|WIDTH_read                 | out |    1|   ap_fifo  |       WIDTH       |    pointer   |
++---------------------------+-----+-----+------------+-------------------+--------------+
+

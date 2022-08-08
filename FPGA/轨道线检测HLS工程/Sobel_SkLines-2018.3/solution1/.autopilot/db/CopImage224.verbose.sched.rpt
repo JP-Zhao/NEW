@@ -1,0 +1,160 @@
+
+
+================================================================
+== Vivado HLS Report for 'CopImage224'
+================================================================
+* Date:           Sat Jun  4 16:23:32 2022
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        Sobel_SkLines
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     3.676|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-------+-------+-------+-------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    |  min  |  max  |  min  |  max  |   Type  |
+    +-------+-------+-------+-------+---------+
+    |  52561|  52561|  52561|  52561|   none  |
+    +-------+-------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-------+-------+----------+-----------+-----------+------+----------+
+        |             |    Latency    | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |  min  |  max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-------+-------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |  52560|  52560|       292|          -|          -|   180|    no    |
+        | + Loop 1.1  |    290|    290|         1|          -|          -|   290|    no    |
+        +-------------+-------+-------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond1)
+3 --> 
+	3  / (!exitcond)
+	2  / (exitcond)
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.65>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %dst_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 4 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %src_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 5 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.65ns)   --->   "br label %.loopexit" [Sobel_SkLines/src/CopImage.cpp:18]   --->   Operation 6 'br' <Predicate = true> <Delay = 0.65>
+
+State 2 <SV = 1> <Delay = 0.84>
+ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%i = phi i8 [ 0, %0 ], [ %i_9, %.loopexit.loopexit ]"   --->   Operation 7 'phi' 'i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 8 [1/1] (0.84ns)   --->   "%exitcond1 = icmp eq i8 %i, -76" [Sobel_SkLines/src/CopImage.cpp:18]   --->   Operation 8 'icmp' 'exitcond1' <Predicate = true> <Delay = 0.84> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 180, i64 180, i64 180)"   --->   Operation 9 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [1/1] (0.76ns)   --->   "%i_9 = add i8 %i, 1" [Sobel_SkLines/src/CopImage.cpp:18]   --->   Operation 10 'add' 'i_9' <Predicate = true> <Delay = 0.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "br i1 %exitcond1, label %3, label %.preheader.preheader" [Sobel_SkLines/src/CopImage.cpp:18]   --->   Operation 11 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (0.65ns)   --->   "br label %.preheader" [Sobel_SkLines/src/CopImage.cpp:19]   --->   Operation 12 'br' <Predicate = (!exitcond1)> <Delay = 0.65>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "ret void" [Sobel_SkLines/src/CopImage.cpp:30]   --->   Operation 13 'ret' <Predicate = (exitcond1)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 3.67>
+ST_3 : Operation 14 [1/1] (0.00ns)   --->   "%j = phi i9 [ %j_8, %._crit_edge ], [ 0, %.preheader.preheader ]"   --->   Operation 14 'phi' 'j' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 15 [1/1] (0.88ns)   --->   "%exitcond = icmp eq i9 %j, -222" [Sobel_SkLines/src/CopImage.cpp:19]   --->   Operation 15 'icmp' 'exitcond' <Predicate = true> <Delay = 0.88> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 290, i64 290, i64 290)"   --->   Operation 16 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 17 [1/1] (0.77ns)   --->   "%j_8 = add i9 %j, 1" [Sobel_SkLines/src/CopImage.cpp:19]   --->   Operation 17 'add' 'j_8' <Predicate = true> <Delay = 0.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 18 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %.loopexit.loopexit, label %1" [Sobel_SkLines/src/CopImage.cpp:19]   --->   Operation 18 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 19 [1/1] (0.00ns)   --->   "%tmp_51 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str3)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:672->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/CopImage.cpp:21]   --->   Operation 19 'specregionbegin' 'tmp_51' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_3 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecProtocol(i32 0, [1 x i8]* @p_str) nounwind" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:676->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/CopImage.cpp:21]   --->   Operation 20 'specprotocol' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_3 : Operation 21 [1/1] (1.83ns)   --->   "%tmp = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %src_data_stream_V)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/CopImage.cpp:21]   --->   Operation 21 'read' 'tmp' <Predicate = (!exitcond)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 2> <FIFO>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str3, i32 %tmp_51)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:681->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/CopImage.cpp:21]   --->   Operation 22 'specregionend' 'empty' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_3 : Operation 23 [1/1] (0.88ns)   --->   "%tmp_s = icmp ult i9 %j, -242" [Sobel_SkLines/src/CopImage.cpp:22]   --->   Operation 23 'icmp' 'tmp_s' <Predicate = (!exitcond)> <Delay = 0.88> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "br i1 %tmp_s, label %2, label %._crit_edge" [Sobel_SkLines/src/CopImage.cpp:22]   --->   Operation 24 'br' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%tmp_52 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str1)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:696->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/CopImage.cpp:23]   --->   Operation 25 'specregionbegin' 'tmp_52' <Predicate = (!exitcond & tmp_s)> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecProtocol(i32 0, [1 x i8]* @p_str) nounwind" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:700->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/CopImage.cpp:23]   --->   Operation 26 'specprotocol' <Predicate = (!exitcond & tmp_s)> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (1.83ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %dst_data_stream_V, i8 %tmp)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:703->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/CopImage.cpp:23]   --->   Operation 27 'write' <Predicate = (!exitcond & tmp_s)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 2> <FIFO>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%empty_159 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str1, i32 %tmp_52)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:705->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/CopImage.cpp:23]   --->   Operation 28 'specregionend' 'empty_159' <Predicate = (!exitcond & tmp_s)> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "br label %._crit_edge" [Sobel_SkLines/src/CopImage.cpp:27]   --->   Operation 29 'br' <Predicate = (!exitcond & tmp_s)> <Delay = 0.00>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "br label %.preheader" [Sobel_SkLines/src/CopImage.cpp:19]   --->   Operation 30 'br' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 31 'br' <Predicate = (exitcond)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', Sobel_SkLines/src/CopImage.cpp:18) [7]  (0.656 ns)
+
+ <State 2>: 0.849ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', Sobel_SkLines/src/CopImage.cpp:18) [7]  (0 ns)
+	'icmp' operation ('exitcond1', Sobel_SkLines/src/CopImage.cpp:18) [8]  (0.849 ns)
+
+ <State 3>: 3.68ns
+The critical path consists of the following:
+	fifo read on port 'src_data_stream_V' (D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/CopImage.cpp:21) [23]  (1.84 ns)
+	fifo write on port 'dst_data_stream_V' (D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:703->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/CopImage.cpp:23) [30]  (1.84 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

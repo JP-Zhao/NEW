@@ -1,0 +1,204 @@
+
+
+================================================================
+== Vivado HLS Report for 'OvlayImage225'
+================================================================
+* Date:           Sat Jun  4 16:23:33 2022
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        Sobel_SkLines
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     3.676|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+---------+
+    |     Latency     |     Interval    | Pipeline|
+    |   min  |   max  |   min  |   max  |   Type  |
+    +--------+--------+--------+--------+---------+
+    |  104761|  104761|  104761|  104761|   none  |
+    +--------+--------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+--------+--------+----------+-----------+-----------+------+----------+
+        |             |     Latency     | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min  |   max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+--------+--------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |  104760|  104760|       582|          -|          -|   180|    no    |
+        | + Loop 1.1  |     580|     580|         2|          -|          -|   290|    no    |
+        +-------------+--------+--------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond2)
+3 --> 
+	4  / (!exitcond)
+	2  / (exitcond)
+4 --> 
+	3  / true
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 0.65>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %dst_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 5 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %ovlaysrc_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 6 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %src_data_stream_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 7 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%StartLoc_addr = getelementptr [2 x i1]* %StartLoc, i64 0, i64 0" [Sobel_SkLines/src/OvlayImage.cpp:5]   --->   Operation 8 'getelementptr' 'StartLoc_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%StartLoc_addr_1 = getelementptr [2 x i1]* %StartLoc, i64 0, i64 1" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 9 'getelementptr' 'StartLoc_addr_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.65ns)   --->   "br label %.loopexit" [Sobel_SkLines/src/OvlayImage.cpp:14]   --->   Operation 10 'br' <Predicate = true> <Delay = 0.65>
+
+State 2 <SV = 1> <Delay = 0.84>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%i = phi i8 [ 0, %0 ], [ %i_7, %.loopexit.loopexit ]"   --->   Operation 11 'phi' 'i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (0.84ns)   --->   "%exitcond2 = icmp eq i8 %i, -76" [Sobel_SkLines/src/OvlayImage.cpp:14]   --->   Operation 12 'icmp' 'exitcond2' <Predicate = true> <Delay = 0.84> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 180, i64 180, i64 180)"   --->   Operation 13 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.76ns)   --->   "%i_7 = add i8 %i, 1" [Sobel_SkLines/src/OvlayImage.cpp:14]   --->   Operation 14 'add' 'i_7' <Predicate = true> <Delay = 0.76> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "br i1 %exitcond2, label %8, label %.preheader.preheader" [Sobel_SkLines/src/OvlayImage.cpp:14]   --->   Operation 15 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.65ns)   --->   "br label %.preheader" [Sobel_SkLines/src/OvlayImage.cpp:15]   --->   Operation 16 'br' <Predicate = (!exitcond2)> <Delay = 0.65>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "ret void" [Sobel_SkLines/src/OvlayImage.cpp:49]   --->   Operation 17 'ret' <Predicate = (exitcond2)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 0.88>
+ST_3 : Operation 18 [1/1] (0.00ns)   --->   "%j = phi i9 [ %j_4, %7 ], [ 0, %.preheader.preheader ]"   --->   Operation 18 'phi' 'j' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 19 [1/1] (0.88ns)   --->   "%exitcond = icmp eq i9 %j, -222" [Sobel_SkLines/src/OvlayImage.cpp:15]   --->   Operation 19 'icmp' 'exitcond' <Predicate = true> <Delay = 0.88> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 290, i64 290, i64 290)"   --->   Operation 20 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 21 [1/1] (0.77ns)   --->   "%j_4 = add i9 %j, 1" [Sobel_SkLines/src/OvlayImage.cpp:15]   --->   Operation 21 'add' 'j_4' <Predicate = true> <Delay = 0.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 0.77> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %.loopexit.loopexit, label %1" [Sobel_SkLines/src/OvlayImage.cpp:15]   --->   Operation 22 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 23 [2/2] (0.67ns)   --->   "%StartLoc_load = load i1* %StartLoc_addr, align 1" [Sobel_SkLines/src/OvlayImage.cpp:5]   --->   Operation 23 'load' 'StartLoc_load' <Predicate = (!exitcond)> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 2> <RAM>
+ST_3 : Operation 24 [2/2] (0.67ns)   --->   "%StartLoc_load_1 = load i1* %StartLoc_addr_1, align 1" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 24 'load' 'StartLoc_load_1' <Predicate = (!exitcond)> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 2> <RAM>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 25 'br' <Predicate = (exitcond)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 3.67>
+ST_4 : Operation 26 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str3)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:672->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/OvlayImage.cpp:16]   --->   Operation 26 'specregionbegin' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecProtocol(i32 0, [1 x i8]* @p_str) nounwind" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:676->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/OvlayImage.cpp:16]   --->   Operation 27 'specprotocol' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 28 [1/1] (1.83ns)   --->   "%tmp_21 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %src_data_stream_V)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/OvlayImage.cpp:16]   --->   Operation 28 'read' 'tmp_21' <Predicate = true> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 2> <FIFO>
+ST_4 : Operation 29 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str3, i32 %tmp)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:681->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/OvlayImage.cpp:16]   --->   Operation 29 'specregionend' 'empty' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 30 [1/2] (0.67ns)   --->   "%StartLoc_load = load i1* %StartLoc_addr, align 1" [Sobel_SkLines/src/OvlayImage.cpp:5]   --->   Operation 30 'load' 'StartLoc_load' <Predicate = true> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 2> <RAM>
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "%extLd26_cast_cast3 = zext i1 %StartLoc_load to i8" [Sobel_SkLines/src/OvlayImage.cpp:5]   --->   Operation 31 'zext' 'extLd26_cast_cast3' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 32 [1/1] (0.84ns)   --->   "%ult = icmp ult i8 %i, %extLd26_cast_cast3" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 32 'icmp' 'ult' <Predicate = true> <Delay = 0.84> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 33 [1/1] (0.00ns) (grouped into LUT with out node tmp_55)   --->   "%rev = xor i1 %ult, true" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 33 'xor' 'rev' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%tmp_s = call i8 @_ssdm_op_BitConcatenate.i8.i7.i1(i7 -38, i1 %StartLoc_load)" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 34 'bitconcatenate' 'tmp_s' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 35 [1/1] (0.84ns)   --->   "%tmp_52 = icmp ult i8 %i, %tmp_s" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 35 'icmp' 'tmp_52' <Predicate = true> <Delay = 0.84> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 36 [1/2] (0.67ns)   --->   "%StartLoc_load_1 = load i1* %StartLoc_addr_1, align 1" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 36 'load' 'StartLoc_load_1' <Predicate = true> <Delay = 0.67> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 0.67> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 2> <RAM>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "%extLd_cast1_cast = zext i1 %StartLoc_load_1 to i9" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 37 'zext' 'extLd_cast1_cast' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 38 [1/1] (0.88ns)   --->   "%ult1 = icmp ult i9 %j, %extLd_cast1_cast" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 38 'icmp' 'ult1' <Predicate = true> <Delay = 0.88> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 39 [1/1] (0.00ns) (grouped into LUT with out node tmp_55)   --->   "%rev1 = xor i1 %ult1, true" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 39 'xor' 'rev1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%tmp_53 = call i9 @_ssdm_op_BitConcatenate.i9.i8.i1(i8 -121, i1 %StartLoc_load_1)" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 40 'bitconcatenate' 'tmp_53' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 41 [1/1] (0.88ns)   --->   "%tmp_54 = icmp ult i9 %j, %tmp_53" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 41 'icmp' 'tmp_54' <Predicate = true> <Delay = 0.88> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 42 [1/1] (0.00ns) (grouped into LUT with out node tmp_55)   --->   "%tmp1 = and i1 %rev, %tmp_52" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 42 'and' 'tmp1' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 43 [1/1] (0.00ns) (grouped into LUT with out node tmp_55)   --->   "%tmp2 = and i1 %tmp_54, %rev1" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 43 'and' 'tmp2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 44 [1/1] (0.28ns) (out node of the LUT)   --->   "%tmp_55 = and i1 %tmp2, %tmp1" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 44 'and' 'tmp_55' <Predicate = true> <Delay = 0.28> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 45 [1/1] (0.00ns)   --->   "br i1 %tmp_55, label %2, label %6" [Sobel_SkLines/src/OvlayImage.cpp:18]   --->   Operation 45 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "%tmp_47 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str1)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:696->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/OvlayImage.cpp:41]   --->   Operation 46 'specregionbegin' 'tmp_47' <Predicate = (!tmp_55)> <Delay = 0.00>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecProtocol(i32 0, [1 x i8]* @p_str) nounwind" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:700->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/OvlayImage.cpp:41]   --->   Operation 47 'specprotocol' <Predicate = (!tmp_55)> <Delay = 0.00>
+ST_4 : Operation 48 [1/1] (1.83ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %dst_data_stream_V, i8 %tmp_21)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:703->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/OvlayImage.cpp:41]   --->   Operation 48 'write' <Predicate = (!tmp_55)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 2> <FIFO>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "%empty_136 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str1, i32 %tmp_47)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:705->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/OvlayImage.cpp:41]   --->   Operation 49 'specregionend' 'empty_136' <Predicate = (!tmp_55)> <Delay = 0.00>
+ST_4 : Operation 50 [1/1] (0.00ns)   --->   "br label %7"   --->   Operation 50 'br' <Predicate = (!tmp_55)> <Delay = 0.00>
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "%tmp_46 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str3)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:672->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/OvlayImage.cpp:19]   --->   Operation 51 'specregionbegin' 'tmp_46' <Predicate = (tmp_55)> <Delay = 0.00>
+ST_4 : Operation 52 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecProtocol(i32 0, [1 x i8]* @p_str) nounwind" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:676->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/OvlayImage.cpp:19]   --->   Operation 52 'specprotocol' <Predicate = (tmp_55)> <Delay = 0.00>
+ST_4 : Operation 53 [1/1] (1.83ns)   --->   "%tmp_22 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %ovlaysrc_data_stream_V)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/OvlayImage.cpp:19]   --->   Operation 53 'read' 'tmp_22' <Predicate = (tmp_55)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 2> <FIFO>
+ST_4 : Operation 54 [1/1] (0.00ns)   --->   "%empty_133 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str3, i32 %tmp_46)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:681->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/OvlayImage.cpp:19]   --->   Operation 54 'specregionend' 'empty_133' <Predicate = (tmp_55)> <Delay = 0.00>
+ST_4 : Operation 55 [1/1] (0.84ns)   --->   "%tmp_56 = icmp eq i8 %tmp_22, 0" [Sobel_SkLines/src/OvlayImage.cpp:26]   --->   Operation 55 'icmp' 'tmp_56' <Predicate = (tmp_55)> <Delay = 0.84> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.84> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 56 [1/1] (0.00ns)   --->   "%tmp_49 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str1)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:696->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/OvlayImage.cpp:34]   --->   Operation 56 'specregionbegin' 'tmp_49' <Predicate = (tmp_55)> <Delay = 0.00>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecProtocol(i32 0, [1 x i8]* @p_str) nounwind" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:700->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/OvlayImage.cpp:34]   --->   Operation 57 'specprotocol' <Predicate = (tmp_55)> <Delay = 0.00>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "br i1 %tmp_56, label %4, label %3" [Sobel_SkLines/src/OvlayImage.cpp:26]   --->   Operation 58 'br' <Predicate = (tmp_55)> <Delay = 0.00>
+ST_4 : Operation 59 [1/1] (1.83ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %dst_data_stream_V, i8 %tmp_21)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:703->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/OvlayImage.cpp:29]   --->   Operation 59 'write' <Predicate = (tmp_55 & !tmp_56)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 2> <FIFO>
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%empty_134 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str1, i32 %tmp_49)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:705->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/OvlayImage.cpp:29]   --->   Operation 60 'specregionend' 'empty_134' <Predicate = (tmp_55 & !tmp_56)> <Delay = 0.00>
+ST_4 : Operation 61 [1/1] (0.00ns)   --->   "br label %5" [Sobel_SkLines/src/OvlayImage.cpp:30]   --->   Operation 61 'br' <Predicate = (tmp_55 & !tmp_56)> <Delay = 0.00>
+ST_4 : Operation 62 [1/1] (1.83ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i8P(i8* %dst_data_stream_V, i8 0)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:703->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/OvlayImage.cpp:34]   --->   Operation 62 'write' <Predicate = (tmp_55 & tmp_56)> <Delay = 1.83> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 2> <FIFO>
+ST_4 : Operation 63 [1/1] (0.00ns)   --->   "%empty_135 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str1, i32 %tmp_49)" [D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:705->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/OvlayImage.cpp:34]   --->   Operation 63 'specregionend' 'empty_135' <Predicate = (tmp_55 & tmp_56)> <Delay = 0.00>
+ST_4 : Operation 64 [1/1] (0.00ns)   --->   "br label %5"   --->   Operation 64 'br' <Predicate = (tmp_55 & tmp_56)> <Delay = 0.00>
+ST_4 : Operation 65 [1/1] (0.00ns)   --->   "br label %7" [Sobel_SkLines/src/OvlayImage.cpp:38]   --->   Operation 65 'br' <Predicate = (tmp_55)> <Delay = 0.00>
+ST_4 : Operation 66 [1/1] (0.00ns)   --->   "br label %.preheader" [Sobel_SkLines/src/OvlayImage.cpp:15]   --->   Operation 66 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.656ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', Sobel_SkLines/src/OvlayImage.cpp:14) [12]  (0.656 ns)
+
+ <State 2>: 0.849ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', Sobel_SkLines/src/OvlayImage.cpp:14) [12]  (0 ns)
+	'icmp' operation ('exitcond2', Sobel_SkLines/src/OvlayImage.cpp:14) [13]  (0.849 ns)
+
+ <State 3>: 0.881ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', Sobel_SkLines/src/OvlayImage.cpp:15) [20]  (0 ns)
+	'icmp' operation ('exitcond', Sobel_SkLines/src/OvlayImage.cpp:15) [21]  (0.881 ns)
+
+ <State 4>: 3.68ns
+The critical path consists of the following:
+	fifo read on port 'src_data_stream_V' (D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->Sobel_SkLines/src/OvlayImage.cpp:16) [28]  (1.84 ns)
+	fifo write on port 'dst_data_stream_V' (D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:703->D:/xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:717->Sobel_SkLines/src/OvlayImage.cpp:29) [62]  (1.84 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

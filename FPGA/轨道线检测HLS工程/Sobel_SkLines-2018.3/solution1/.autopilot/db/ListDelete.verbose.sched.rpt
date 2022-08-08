@@ -1,0 +1,155 @@
+
+
+================================================================
+== Vivado HLS Report for 'ListDelete'
+================================================================
+* Date:           Sat Jun  4 16:23:34 2022
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        Sobel_SkLines
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     2.474|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |    ?|    ?|         2|          -|          -|     ?|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!or_cond & tmp_69)
+3 --> 
+	2  / true
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.27>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%length_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %length_r)" [Sobel_SkLines/src/SeekPoint.cpp:115]   --->   Operation 4 'read' 'length_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%i_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %i)" [Sobel_SkLines/src/SeekPoint.cpp:115]   --->   Operation 5 'read' 'i_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.99ns)   --->   "%tmp = icmp slt i32 %i_read, 1" [Sobel_SkLines/src/SeekPoint.cpp:116]   --->   Operation 6 'icmp' 'tmp' <Predicate = true> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 7 [1/1] (0.99ns)   --->   "%tmp_s = icmp sgt i32 %i_read, %length_read" [Sobel_SkLines/src/SeekPoint.cpp:116]   --->   Operation 7 'icmp' 'tmp_s' <Predicate = true> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 8 [1/1] (0.28ns)   --->   "%or_cond = or i1 %tmp, %tmp_s" [Sobel_SkLines/src/SeekPoint.cpp:116]   --->   Operation 8 'or' 'or_cond' <Predicate = true> <Delay = 0.28> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.28> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "br i1 %or_cond, label %.loopexit, label %.preheader.preheader" [Sobel_SkLines/src/SeekPoint.cpp:116]   --->   Operation 9 'br' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.65ns)   --->   "br label %.preheader" [Sobel_SkLines/src/SeekPoint.cpp:118]   --->   Operation 10 'br' <Predicate = (!or_cond)> <Delay = 0.65>
+
+State 2 <SV = 1> <Delay = 1.23>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%j = phi i32 [ %j_7, %1 ], [ %i_read, %.preheader.preheader ]"   --->   Operation 11 'phi' 'j' <Predicate = (!or_cond)> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (0.99ns)   --->   "%tmp_69 = icmp slt i32 %j, %length_read" [Sobel_SkLines/src/SeekPoint.cpp:118]   --->   Operation 12 'icmp' 'tmp_69' <Predicate = (!or_cond)> <Delay = 0.99> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %tmp_69, label %1, label %.loopexit.loopexit" [Sobel_SkLines/src/SeekPoint.cpp:118]   --->   Operation 13 'br' <Predicate = (!or_cond)> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%tmp_70 = sext i32 %j to i64" [Sobel_SkLines/src/SeekPoint.cpp:119]   --->   Operation 14 'sext' 'tmp_70' <Predicate = (!or_cond & tmp_69)> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%Data_addr = getelementptr [5000 x i32]* %Data, i64 0, i64 %tmp_70" [Sobel_SkLines/src/SeekPoint.cpp:119]   --->   Operation 15 'getelementptr' 'Data_addr' <Predicate = (!or_cond & tmp_69)> <Delay = 0.00>
+ST_2 : Operation 16 [2/2] (1.23ns)   --->   "%Data_load = load i32* %Data_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:119]   --->   Operation 16 'load' 'Data_load' <Predicate = (!or_cond & tmp_69)> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 17 'br' <Predicate = (!or_cond & !tmp_69)> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 18 'ret' <Predicate = (!tmp_69) | (or_cond)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 2.47>
+ST_3 : Operation 19 [1/2] (1.23ns)   --->   "%Data_load = load i32* %Data_addr, align 4" [Sobel_SkLines/src/SeekPoint.cpp:119]   --->   Operation 19 'load' 'Data_load' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+ST_3 : Operation 20 [1/1] (1.01ns)   --->   "%tmp_71 = add nsw i32 %j, -1" [Sobel_SkLines/src/SeekPoint.cpp:119]   --->   Operation 20 'add' 'tmp_71' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%tmp_72 = sext i32 %tmp_71 to i64" [Sobel_SkLines/src/SeekPoint.cpp:119]   --->   Operation 21 'sext' 'tmp_72' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%Data_addr_3 = getelementptr [5000 x i32]* %Data, i64 0, i64 %tmp_72" [Sobel_SkLines/src/SeekPoint.cpp:119]   --->   Operation 22 'getelementptr' 'Data_addr_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 23 [1/1] (1.23ns)   --->   "store i32 %Data_load, i32* %Data_addr_3, align 4" [Sobel_SkLines/src/SeekPoint.cpp:119]   --->   Operation 23 'store' <Predicate = true> <Delay = 1.23> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 5000> <RAM>
+ST_3 : Operation 24 [1/1] (1.01ns)   --->   "%j_7 = add nsw i32 %j, 1" [Sobel_SkLines/src/SeekPoint.cpp:118]   --->   Operation 24 'add' 'j_7' <Predicate = true> <Delay = 1.01> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "br label %.preheader" [Sobel_SkLines/src/SeekPoint.cpp:118]   --->   Operation 25 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.28ns
+The critical path consists of the following:
+	wire read on port 'length_r' (Sobel_SkLines/src/SeekPoint.cpp:115) [4]  (0 ns)
+	'icmp' operation ('tmp_s', Sobel_SkLines/src/SeekPoint.cpp:116) [7]  (0.991 ns)
+	'or' operation ('or_cond', Sobel_SkLines/src/SeekPoint.cpp:116) [8]  (0.287 ns)
+
+ <State 2>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('i', Sobel_SkLines/src/SeekPoint.cpp:115) ('j', Sobel_SkLines/src/SeekPoint.cpp:118) [13]  (0 ns)
+	'getelementptr' operation ('Data_addr', Sobel_SkLines/src/SeekPoint.cpp:119) [18]  (0 ns)
+	'load' operation ('Data_load', Sobel_SkLines/src/SeekPoint.cpp:119) on array 'Data' [19]  (1.24 ns)
+
+ <State 3>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('Data_load', Sobel_SkLines/src/SeekPoint.cpp:119) on array 'Data' [19]  (1.24 ns)
+	'store' operation (Sobel_SkLines/src/SeekPoint.cpp:119) of variable 'Data_load', Sobel_SkLines/src/SeekPoint.cpp:119 on array 'Data' [23]  (1.24 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
